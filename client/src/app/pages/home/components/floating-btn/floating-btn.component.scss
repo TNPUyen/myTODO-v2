@@ -1,0 +1,16 @@
+.floating-btn{
+    // position: absolute;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary);
+    color: var(--dark);
+
+    &:hover{
+        background-color: var(--light-yellow);
+        cursor: pointer;
+    }
+}
