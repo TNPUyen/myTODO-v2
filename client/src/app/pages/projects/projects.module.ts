@@ -10,7 +10,7 @@ import { ProjectCardComponent } from './components/project-card/project-card.com
 @NgModule({
   declarations: [
     ProjectsComponent,
-    ProjectCardComponent
+    ProjectCardComponent,
   ],
   imports: [
     CommonModule,

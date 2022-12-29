@@ -12,4 +12,8 @@ export class ProjectDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goBack() {
+    window.history.back();
+  }
+
 }

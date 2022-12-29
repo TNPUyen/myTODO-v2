@@ -117,6 +117,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border-right: none;
         border-bottom: 2px solid var(--light-gray);
     }
     
@@ -196,6 +197,10 @@
             height: 1.5rem;
             color: white !important;
         }
+    }
+
+    .bottom-sidebar-content{
+        width: 10%;
     }
 }
     

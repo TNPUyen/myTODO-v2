@@ -1,0 +1,138 @@
+.project-detail-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.project-detail-top-option{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.backBtn{
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 2px;
+    border-radius: 5px;
+    &:hover{
+        cursor: pointer;
+        background-color: var(--primary);
+        color: white;
+    }
+}
+
+.project-detail-option-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.option-btn{
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 2px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.add-new-task-btn{
+    &:hover{
+        cursor: pointer;
+        background-color: var(--primary);
+        
+        nb-icon{
+            color: white;
+        }
+    }
+}
+
+.share-btn{
+    &:hover{
+        cursor: pointer;
+        background-color: var(--primary);
+        
+        nb-icon{
+            color: white;
+        }
+    }
+}
+
+.info-btn{
+    &:hover{
+        cursor: pointer;
+        background-color: var(--primary);
+        
+        nb-icon{
+            color: white;
+        }
+    }
+}
+
+.delete-btn{
+    nb-icon{
+        color: var(--danger);
+    }
+
+    &:hover{
+        cursor: pointer;
+        background-color: var(--danger);
+        
+        nb-icon{
+            color: white;
+        }
+    }
+}
+
+.project-task-col-bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 90%;
+    width: 100%;
+}
+
+.project-task-col-content{
+    display: grid;
+    justify-content: center;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    // grid-template-columns: 25rem 25rem 25rem;
+    // grid-template-rows: 1fr;
+    // grid-template-rows: repeat(auto-fill, minmax(30rem, 1fr));
+    height: 100%;
+    width: 95%;
+    // overflow-y: auto;
+}
+
+@media screen and (max-width: 1450px) {
+    .project-task-col-content{
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .project-task-col-content{
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    }
+}
+
+@media screen and (max-width: 1089px) {
+    .project-task-col-content{
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    }
+}

@@ -1,0 +1,147 @@
+.project-task-container{
+    width: 100%;
+    height: 10rem;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 2px solid var(--light-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover{
+        cursor: pointer;
+        border: 2px solid var(--primary);
+    }
+}
+
+    
+h4{
+    font-weight: 700;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 10px 0 3px 0;
+    font-size: 1.3rem;
+}
+
+
+.project-task-info{
+    width: 90%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-task-info-content{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+
+    
+    p{
+        margin-bottom: 3px;
+        font-size: 1rem;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
+        white-space: pre-wrap; /* let the text wrap preserving spaces */
+    }
+}
+.project-task-bottom{
+    width: 100%;
+    height: 30%;
+    border-top: 2px solid var(--light-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.project-task-bottom-content{
+    width: 90%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.project-task-assigned{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    p{
+        font-weight: 600;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
+
+.user-assigned-ava{
+    width: 2rem;
+    height: 2rem;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+
+    img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 2px solid #d1d1d1;
+    }
+}
+
+.project-task-options{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.optionBtn{
+    width: 1.8rem;
+    height: 1.8rem;
+    padding: 2px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3px;
+}
+
+.editBtn{
+    nb-icon{
+        color: var(--primary);
+    }
+    &:hover{
+        background-color: var(--primary);
+        cursor: pointer;
+        
+        nb-icon{
+            color: white;
+        }
+    }
+}
+
+.trashBtn{
+    &:hover{
+        background-color: var(--danger);
+        cursor: pointer;
+        
+        nb-icon{
+            color: white;
+        }
+    }
+}
