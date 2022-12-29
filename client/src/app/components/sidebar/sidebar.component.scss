@@ -78,6 +78,36 @@
     }
 }
 
+.bottom-sidebar-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user-ava{
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 2px solid #d1d1d1;
+    }
+
+    &:hover{
+        cursor: pointer;
+        img{
+            border: 2px solid var(--primary);
+        }
+    }
+}
+
 
 // sidebar mobile view css
 @media screen and (max-width: 768px) {

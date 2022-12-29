@@ -1,0 +1,96 @@
+.project-card{
+    width: 20rem;
+    height: 12rem;
+    border-radius: 5px;
+    border: 2px solid #e0e0e0;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover{
+        cursor: pointer;
+        border: 2px solid var(--primary);
+    }
+}
+
+.project-card-content{
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h4{
+    margin: 5px 0 10px 0;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+p{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4; /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap; /* let the text wrap preserving spaces */
+}
+
+.project-card-top{
+    width: 87%;
+    height: 80%;
+}
+
+.project-card-bottom{
+    width: 100%;
+    height: 25%;
+    border-top: 2px solid #e0e0e0;
+    display: flex;
+    justify-content: center;
+}
+
+.project-card-bot-content{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    p{
+        font-weight: 600;
+        margin: 0 5px;
+        font-size: 0.8rem;
+        color: #939393;
+        font-style: italic;
+    }
+}
+
+.delete-project-btn{
+    width: 1.8rem;
+    height: 1.8rem;
+    padding: 2px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    nb-icon{
+        color: var(--danger);
+    }
+    &:hover{
+        background-color: var(--danger);
+        cursor: pointer;
+        
+        nb-icon{
+            color: white;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .project-card{
+        width: 90%;
+    }
+}

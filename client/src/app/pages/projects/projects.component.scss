@@ -1,0 +1,92 @@
+.project-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.project-top-option{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.project-top-option-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.filter-project, .add-new-project-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    margin-left: 20px;
+    border-radius: 5px;
+
+    p{
+        font-weight: 600;
+        margin: 0 5px;
+    }
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.filter-project{
+    border: 2px solid var(--primary);
+
+    &:hover{
+        background-color: var(--primary);
+        color: white;
+        p{
+            color: white;
+        }
+    }
+}   
+
+.add-new-project-btn{
+    background-color: var(--secondary);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    border: 2px solid var(--secondary);
+
+    &:hover{
+        background-color: white;
+        color: var(--secondary);
+        p{
+            color: var(--secondary);
+        }
+    }
+}
+
+// project-bottom-list css
+.project-bottom{
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.project-list{
+    display: grid;
+    justify-content: center;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+
+    app-project-card{
+        display: flex;
+        justify-content: center;
+    }
+}

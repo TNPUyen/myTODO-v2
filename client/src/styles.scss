@@ -13,6 +13,7 @@
   --secondary: #FED81D;
   --light-yellow: #FFE05C;
   --light-gray: #eeeeee;
+  --light-gray-2: #e0e0e0;
   --dark: #333333;
   --danger: #FF3D71;
 }
@@ -26,4 +27,28 @@ h1, h2, h3, h4, h5, h6, p, span{
   // color: var(--dark);
   margin: 0;
   font-family: 'Maven Pro', sans-serif;
+}
+
+
+.root::-webkit-scrollbar-track
+{
+	background-color: #F5F5F5;
+}
+
+.root::-webkit-scrollbar
+{
+	width: 8px;
+	border-radius: 5px;
+	background-color: #F5F5F5;
+}
+
+.root::-webkit-scrollbar-thumb
+{
+	background-color: #e8e8e8;
+	border-radius: 5px;
+	border: 2px solid var(--light-gray);
+
+    &:hover{
+        background-color: #d2d2d2;
+    }
 }

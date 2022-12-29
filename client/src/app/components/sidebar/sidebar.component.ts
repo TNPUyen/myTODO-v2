@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,13 +14,13 @@ export class SidebarComponent implements OnInit {
       title: 'Home',
       icon: 'home-outline',
       activedIcon: 'home',
-      link: '/home'
+      link: ''
     },
     {
       title: 'Projects',
       icon: 'folder-outline',
       activedIcon: 'folder',
-      link: ''
+      link: '/projects'
     },
     {
       title: 'Settings',
@@ -29,7 +30,7 @@ export class SidebarComponent implements OnInit {
     },
   ]
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
     this.selectedMenu = 0;
@@ -37,7 +38,7 @@ export class SidebarComponent implements OnInit {
 
   selectMenu(index: number) {
     this.selectedMenu = index;
-    console.log(this.selectedMenu);
+    this.route.navigate([this.sidemenu[index].link]);
   }
 
 }
