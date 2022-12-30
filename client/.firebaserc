@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mytodo-dbed7": {
+      "hosting": {
+        "client": [
+          "mytodo-dbed7"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mytodo-dbed7"
+  }
+}
