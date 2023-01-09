@@ -45,6 +45,13 @@ nb-checkbox{
     flex-direction: row;
 }
 
+.personal-task-left-content{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 93%;
+}
+
 .option{
     width: 1.8rem;
     height: 1.8rem;

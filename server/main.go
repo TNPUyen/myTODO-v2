@@ -28,6 +28,7 @@ func main() {
 
 	server := core.NewServer(config, db, app)
 	_ = apis.NewTodoApis(server)
+	_ = apis.NewUserApis(server)
 	defer db.Client.Disconnect(context.TODO())
 	server.Start()
 }

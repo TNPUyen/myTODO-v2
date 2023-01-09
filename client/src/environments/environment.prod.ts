@@ -7,5 +7,6 @@ export const environment = {
     authDomain: 'mytodo-dbed7.firebaseapp.com',
     messagingSenderId: '523911255924',
   },
-  production: true
+  production: true,
+  apiUrl: 'http://localhost:3000/api/v1',
 };

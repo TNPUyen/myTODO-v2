@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NbDialogService } from '@nebular/theme';
+import { NewTodoDialogComponent } from '../new-todo-dialog/new-todo-dialog.component';
 
 @Component({
   selector: 'app-floating-btn',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./floating-btn.component.scss']
 })
 export class FloatingBtnComponent implements OnInit {
+  @Input() owner!: string | null;
 
-  constructor() { }
+  constructor(private dialogService: NbDialogService) { }
 
   ngOnInit(): void {
   }
 
+  openAddNew() {
+    this.dialogService.open(NewTodoDialogComponent,
+      {
+        context: {
+          owner: this.owner,
+        }
+      });
+  }
 }

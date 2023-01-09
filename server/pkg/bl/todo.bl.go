@@ -49,7 +49,21 @@ func (bl TodoBusinessLogic) GetTodo(todoID string) (*models.Todo, error) {
 	return &todo, nil
 }
 
-func (bl TodoBusinessLogic) CreateTodo(todo *models.Todo) error {
+func (bl TodoBusinessLogic) GetTodoByOwner(ownerID string) (*models.Todo, error) {
+	id, err := primitive.ObjectIDFromHex(ownerID)
+	if err != nil {
+		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+	res, err := bl.server.Db.Collection("todos").Find(context.Background(), bson.M{"owner_id": id})
+	if err != nil {
+		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+	todo := models.Todo{}
+	res.Decode(&todo)
+	return &todo, nil
+}
+
+func (bl TodoBusinessLogic) CreateTodo(todo *models.Todo, ownerID string) error {
 	if todo.Content == "" {
 		return echo.NewHTTPError(http.StatusBadRequest, "Title is required")
 	}
@@ -57,6 +71,11 @@ func (bl TodoBusinessLogic) CreateTodo(todo *models.Todo) error {
 	todo.Created_at = int(time.Now().Unix())
 	todo.Updated_at = int(time.Now().Unix())
 	todo.Status = false
+	todo.OwnerID = ownerID
+	// _, err := bl.server.Db.Collection("user").UpdateByID(context.Background(), ownerID, bson.M{"$push": bson.M{"todos": todo.ID}})
+	// if err != nil {
+	// 	return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	// }
 	_, err := bl.server.Db.Collection("todos").InsertOne(context.Background(), todo)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())

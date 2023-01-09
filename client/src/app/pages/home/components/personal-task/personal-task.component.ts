@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Todo } from 'src/app/models/todo.model';
 
 @Component({
   selector: 'app-personal-task',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./personal-task.component.scss']
 })
 export class PersonalTaskComponent implements OnInit {
+  @Input() todo!: Todo;
 
   isDone: boolean = false;
 

@@ -1,10 +1,13 @@
 package apis
 
 import (
+	"encoding/json"
 	"myTODO-server/pkg/bl"
 	"myTODO-server/pkg/core"
 	"myTODO-server/pkg/models"
 	"net/http"
+
+	"github.com/mitchellh/mapstructure"
 
 	"github.com/labstack/echo/v4"
 )
@@ -25,16 +28,31 @@ func NewTodoApis(server *core.Server) *echo.Group {
 		return c.JSON(http.StatusOK, result)
 	})
 	api.POST("/", func(c echo.Context) error {
-		todo := models.Todo{}
-		err := c.Bind(&todo)
+		// get user from body request by echo
+		json_map := make(map[string]interface{})
+		err := json.NewDecoder(c.Request().Body).Decode(&json_map)
+
 		if err != nil {
 			return err
 		}
-		err = business.CreateTodo(&todo)
+		user := json_map["user"]
+		var mapUser string
+		mapstructure.Decode(user, &mapUser)
+		if err != nil {
+			panic(err)
+		}
+		todo := json_map["todo"]
+		var mapTodo *models.Todo
+
+		mapstructure.Decode(todo, &mapTodo)
+		if err != nil {
+			panic(err)
+		}
+		err = business.CreateTodo(mapTodo, mapUser)
 		if err != nil {
 			return err
 		}
-		return c.JSON(http.StatusOK, todo)
+		return c.JSON(http.StatusOK, mapTodo)
 	})
 	api.PUT("/:id", func(c echo.Context) error {
 		todo := models.Todo{}

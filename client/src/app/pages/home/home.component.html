@@ -1,23 +1,16 @@
 <div class="home-container">
     <div class="home-left-content">
         <div class="home-left-top">
-            <app-floating-btn class="floating"></app-floating-btn>
+            <app-floating-btn [owner]="user.email" class="floating"></app-floating-btn>
             <h1>Welcome back, <span>DEMO</span>!</h1>
             <div class="home-left-top-info">
                 <!-- <h5><span>{{date | date:'EEEE'}}</span>, {{date | date:'dd/MM/yyyy'}}</h5> -->
-                <h5>Today you have <span>5</span> tasks to do.</h5>
+                <h5>Today you have <span>{{todoList != null ? todoList.length : 0}}</span> tasks to do.</h5>
             </div>
         </div>
         <div class="home-left-body">
             <div class="home-left-bottom-content">
-                <app-personal-task></app-personal-task>
-                <app-personal-task></app-personal-task>
-                <app-personal-task></app-personal-task>
-                <app-personal-task></app-personal-task>
-                <app-personal-task></app-personal-task>
-                <app-personal-task></app-personal-task>
-                <app-personal-task></app-personal-task>
-                <app-personal-task></app-personal-task>
+                <app-personal-task [todo]="todo" *ngFor="let todo of todoList"></app-personal-task>
             </div>
         </div>
         <div class="home-left-footer">

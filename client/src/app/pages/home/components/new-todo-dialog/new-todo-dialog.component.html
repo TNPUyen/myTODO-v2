@@ -1,0 +1,14 @@
+<nb-card>
+    <nb-card-header>
+        Add new todo
+    </nb-card-header>
+    <nb-card-body>
+        <input type="text" [(ngModel)]="newTodoContent">
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="footer-dialog-add">
+            <button class="btn-dialog cancelBtn" (click)="ref.close()">Cancel</button>
+            <button class="btn-dialog addBtn" (click)="addNewTodo()">Add</button>
+        </div>
+    </nb-card-footer>
+</nb-card>

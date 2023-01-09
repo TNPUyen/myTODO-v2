@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutsComponent } from './components/layouts/layouts.component';
+import { HomeGuard } from './guards/home.guard';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   // Routing for authenticated users
@@ -10,11 +12,13 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        canActivate: [HomeGuard],
         loadChildren: () =>
           import('./pages/home/home.module').then((m) => m.HomeModule),
       },
       {
         path: 'projects',
+        canActivate: [HomeGuard],
         loadChildren: () =>
           import('./pages/projects/projects.module').then(
             (m) => m.ProjectsModule
@@ -22,10 +26,18 @@ const routes: Routes = [
       },
       {
         path: 'projects/:id',
+        canActivate: [HomeGuard],
         loadChildren: () =>
-          import(
-            './pages/projects/project-detail/project-detail.module'
-          ).then((m) => m.ProjectDetailModule),
+          import('./pages/projects/project-detail/project-detail.module').then(
+            (m) => m.ProjectDetailModule
+          ),
+      },
+      {
+        path: 'settings',
+        loadChildren: () =>
+          import('./pages/settings/settings.module').then(
+            (m) => m.SettingsModule
+          ),
       },
     ],
   },
@@ -35,6 +47,16 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () =>
       import('./pages/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'regis',
+    loadChildren: () =>
+      import('./pages/regis/regis.module').then((m) => m.RegisModule),
+  },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./pages/error/error.module').then((m) => m.ErrorModule),
   },
 ];
 

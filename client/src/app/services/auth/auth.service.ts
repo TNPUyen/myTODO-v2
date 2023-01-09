@@ -1,14 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Auth, authState, GoogleAuthProvider, signInWithPopup, signOut } from '@angular/fire/auth';
+import { Auth, authState, GoogleAuthProvider, signInWithPopup, signOut, UserInfo } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
+import { UserModel } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private auth: Auth, private router: Router) { }
+  user!: UserInfo | null;
+  userInfo!: UserModel | null;
+
+  constructor(private auth: Auth, private router: Router) {
+    authState(this.auth).subscribe(user => {
+      if(user){
+        this.user = user;
+      }
+    });
+   }
   getAuthState(){
     return authState(this.auth);
   }

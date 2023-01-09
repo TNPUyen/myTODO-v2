@@ -90,20 +90,24 @@
     width: 3rem;
     height: 3rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    border: 2px solid #d1d1d1;
+    border-radius: 50%;
+
 
     img{
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        border: 2px solid #d1d1d1;
+        object-fit: cover;
+        margin: 0;
+        padding: 0;
     }
 
     &:hover{
         cursor: pointer;
+        border: 2px solid var(--primary);
         img{
-            border: 2px solid var(--primary);
+            
         }
     }
 }
