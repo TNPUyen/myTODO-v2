@@ -24,11 +24,11 @@ func NewTodoBusinessLogic(server *core.Server) *TodoBusinessLogic {
 
 func (bl TodoBusinessLogic) GetTodos() ([]*models.Todo, error) {
 	var todos []*models.Todo
-	cursor, err := bl.server.Db.Collection("todos").Find(context.Background(), bson.M{})
+	todoList, err := bl.server.Db.Collection("todos").Find(context.Background(), bson.M{})
 	if err != nil {
 		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
-	err = cursor.All(context.Background(), &todos)
+	err = todoList.All(context.Background(), &todos)
 	if err != nil {
 		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
@@ -36,11 +36,11 @@ func (bl TodoBusinessLogic) GetTodos() ([]*models.Todo, error) {
 }
 
 func (bl TodoBusinessLogic) GetTodo(todoID string) (*models.Todo, error) {
-	id, err := primitive.ObjectIDFromHex(todoID)
-	if err != nil {
-		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
-	}
-	res := bl.server.Db.Collection("todos").FindOne(context.Background(), bson.M{"_id": id})
+	// id, err := primitive.ObjectIDFromHex(todoID)
+	// if err != nil {
+	// 	return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	// }
+	res := bl.server.Db.Collection("todos").FindOne(context.Background(), bson.M{"todo_id": todoID})
 	if res.Err() != nil {
 		return nil, echo.NewHTTPError(http.StatusBadRequest, res.Err().Error())
 	}
@@ -49,18 +49,21 @@ func (bl TodoBusinessLogic) GetTodo(todoID string) (*models.Todo, error) {
 	return &todo, nil
 }
 
-func (bl TodoBusinessLogic) GetTodoByOwner(ownerID string) (*models.Todo, error) {
-	id, err := primitive.ObjectIDFromHex(ownerID)
+func (bl TodoBusinessLogic) GetTodoByOwner(ownerID string) ([]*models.Todo, error) {
+	// id, err := primitive.ObjectIDFromHex(ownerID)
+	// if err != nil {
+	// 	return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	// }
+	var todos []*models.Todo
+	res, err := bl.server.Db.Collection("todos").Find(context.Background(), bson.D{primitive.E{Key: "owner_id", Value: ownerID}})
 	if err != nil {
 		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
-	res, err := bl.server.Db.Collection("todos").Find(context.Background(), bson.M{"owner_id": id})
+	err = res.All(context.Background(), &todos)
 	if err != nil {
 		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
-	todo := models.Todo{}
-	res.Decode(&todo)
-	return &todo, nil
+	return todos, nil
 }
 
 func (bl TodoBusinessLogic) CreateTodo(todo *models.Todo, ownerID string) error {
@@ -84,14 +87,14 @@ func (bl TodoBusinessLogic) CreateTodo(todo *models.Todo, ownerID string) error 
 }
 
 func (bl TodoBusinessLogic) UpdateTodo(newTodo *models.Todo) error {
-	oldTodo, err := bl.GetTodo(newTodo.ID.Hex())
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
-	}
+	// oldTodo, err := bl.GetTodo(newTodo.ID.Hex())
+	// if err != nil {
+	// 	return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	// }
 	if newTodo.Content == "" {
 		return echo.NewHTTPError(http.StatusBadRequest, "Title is required")
 	}
-	_, err = bl.server.Db.Collection("todos").UpdateOne(context.Background(), bson.M{"_id": oldTodo.ID}, bson.M{"$set": bson.M{"content": newTodo.Content, "updated_at": int(time.Now().Unix())}})
+	_, err := bl.server.Db.Collection("todos").UpdateOne(context.Background(), bson.M{"todo_id": newTodo.Todo_id}, bson.M{"$set": bson.M{"content": newTodo.Content, "updated_at": int(time.Now().Unix())}})
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
@@ -100,11 +103,11 @@ func (bl TodoBusinessLogic) UpdateTodo(newTodo *models.Todo) error {
 }
 
 func (bl TodoBusinessLogic) UpdateTodoStatus(newTodo *models.Todo) error {
-	oldTodo, err := bl.GetTodo(newTodo.ID.Hex())
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
-	}
-	_, err = bl.server.Db.Collection("todos").UpdateOne(context.Background(), bson.M{"_id": oldTodo.ID}, bson.M{"$set": bson.M{"status": newTodo.Status, "updated_at": int(time.Now().Unix())}})
+	// oldTodo, err := bl.GetTodo(newTodo.ID.Hex())
+	// if err != nil {
+	// 	return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	// }
+	_, err := bl.server.Db.Collection("todos").UpdateOne(context.Background(), bson.M{"todo_id": newTodo.Todo_id}, bson.M{"$set": bson.M{"status": newTodo.Status, "updated_at": int(time.Now().Unix())}})
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
@@ -141,11 +144,11 @@ func (bl TodoBusinessLogic) DeleteOneTodo(todoID string) error {
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
-	id, err := primitive.ObjectIDFromHex(todo.ID.Hex())
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
-	}
-	_, err = bl.server.Db.Collection("todos").DeleteOne(context.Background(), bson.M{"_id": id})
+	// id, err := primitive.ObjectIDFromHex(todo.ID.Hex())
+	// if err != nil {
+	// 	return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	// }
+	_, err = bl.server.Db.Collection("todos").DeleteOne(context.Background(), bson.M{"todo_id": todo.Todo_id})
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
@@ -158,11 +161,11 @@ func (bl TodoBusinessLogic) DeleteMultiTodos(todosID []string) error {
 		if err != nil {
 			return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 		}
-		id, err := primitive.ObjectIDFromHex(todo.ID.Hex())
+		// id, err := primitive.ObjectIDFromHex(todo.ID.Hex())
 		if err != nil {
 			return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 		}
-		_, err = bl.server.Db.Collection("todos").DeleteOne(context.Background(), bson.M{"_id": id})
+		_, err = bl.server.Db.Collection("todos").DeleteOne(context.Background(), bson.M{"todo_id": todo.Todo_id})
 		if err != nil {
 			return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 		}

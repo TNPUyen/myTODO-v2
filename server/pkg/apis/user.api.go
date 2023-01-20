@@ -16,8 +16,8 @@ func NewUserApis(server *core.Server) *echo.Group {
 		result, _ := business.GetAllUser()
 		return c.JSON(http.StatusOK, result)
 	})
-	api.GET("/:id", func(c echo.Context) error {
-		userID := c.Param("id")
+	api.GET("/:uid", func(c echo.Context) error {
+		userID := c.Param("uid")
 		result, err := business.GetUser(userID)
 		if err != nil {
 			return err

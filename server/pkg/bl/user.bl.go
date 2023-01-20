@@ -35,12 +35,12 @@ func (bl UserBusinessLogic) GetAllUser() ([]*models.User, error) {
 	return users, nil
 }
 
-func (bl UserBusinessLogic) GetUser(userID string) (*models.User, error) {
-	id, err := primitive.ObjectIDFromHex(userID)
-	if err != nil {
-		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
-	}
-	res := bl.server.Db.Collection("users").FindOne(context.Background(), bson.M{"_id": id})
+func (bl UserBusinessLogic) GetUser(uid string) (*models.User, error) {
+	// uid, err := primitive.ObjectIDFromHex(userID)
+	// if err != nil {
+	// 	return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	// }
+	res := bl.server.Db.Collection("users").FindOne(context.Background(), bson.M{"uid": uid})
 	if res.Err() != nil {
 		return nil, echo.NewHTTPError(http.StatusBadRequest, res.Err().Error())
 	}

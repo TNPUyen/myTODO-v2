@@ -28,7 +28,11 @@ func main() {
 
 	server := core.NewServer(config, db, app)
 	_ = apis.NewTodoApis(server)
+	_ = apis.NewTaskApis(server)
 	_ = apis.NewUserApis(server)
+	_ = apis.NewProjectApis(server)
+	_ = apis.NewInvitationAPI(server)
+	_ = apis.NewNotificationAPI(server)
 	defer db.Client.Disconnect(context.TODO())
 	server.Start()
 }

@@ -27,6 +27,14 @@ func NewTodoApis(server *core.Server) *echo.Group {
 		}
 		return c.JSON(http.StatusOK, result)
 	})
+	api.GET("/byUser/:uid", func(c echo.Context) error {
+		userID := c.Param("uid")
+		result, err := business.GetTodoByOwner(userID)
+		if err != nil {
+			return err
+		}
+		return c.JSON(http.StatusOK, result)
+	})
 	api.POST("/", func(c echo.Context) error {
 		// get user from body request by echo
 		json_map := make(map[string]interface{})
