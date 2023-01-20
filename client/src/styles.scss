@@ -10,7 +10,9 @@
 
 :root{
   --primary: #2c3e50;
+  // --primary: #2D4059;
   --primary-hover: #34495e;
+  // --secondary: #F07B3F;
   --secondary: #FED81D;
   --light-yellow: #FFE05C;
   --light-gray: #eeeeee;
@@ -18,6 +20,9 @@
   --gray-text: #939393;
   --dark: #333333;
   --danger: #FF3D71;
+  --danger2: #EA5455;
+  --dark-green: #36622B;
+  --green: #729D39;
 }
 
 *{
@@ -53,4 +58,12 @@ h1, h2, h3, h4, h5, h6, p, span{
     &:hover{
         background-color: #d2d2d2;
     }
+}
+
+nb-icon:hover{
+    cursor: pointer;
+}
+
+textarea {
+  resize: none;
 }

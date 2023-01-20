@@ -1,0 +1,14 @@
+<nb-card>
+    <nb-card-header>
+        INVITATIONS
+        <nb-icon nbTooltip="Close dialog" nbTooltipPlacement="top" (click)="ref.close()" [options]="{ animation: { type: 'pulse' } }" icon="close-outline"></nb-icon>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="invite-list" *ngIf="invitations.length !== 0">
+            <app-invitation-item *ngFor="let invitation of invitations" [invitation]="invitation" (repliedInvitationEvent)="repliedInvitationEvent($event)"></app-invitation-item>
+        </div>
+         <div>
+            <p *ngIf="invitations.length === 0">You have no invitations.</p>
+         </div>
+    </nb-card-body>
+</nb-card>

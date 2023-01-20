@@ -1,7 +1,8 @@
 export interface UserModel {
-    id: string | null;
-    displayName: string | null;
-    photoURL: string | null;
-    email: string | null;
-    createdAt: number | null;
+    id: string ;
+    uid: string;
+    displayName: string;
+    photoURL: string;
+    email: string;
+    createdAt: number;
 }

@@ -22,7 +22,7 @@ export class LayoutsComponent implements OnInit {
       if (user) {
         this.user = user;
         localStorage.setItem('user', JSON.stringify(user));
-        this.userService.createUser(user).subscribe(user => user);
+        // this.userService.createUser(user).subscribe(user => user);
       }
     });
   }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '@angular/fire/auth';
-import { Router } from '@angular/router';
-import { NbToastrService } from '@nebular/theme';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NbDialogService, NbToastrService } from '@nebular/theme';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { InvitationDialogComponent } from '../invitation-dialog/invitation-dialog.component';
+import { NotiDialogComponent } from '../noti-dialog/noti-dialog.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,7 +19,7 @@ export class SidebarComponent implements OnInit {
       title: 'Home',
       icon: 'home-outline',
       activedIcon: 'home',
-      link: '',
+      link: '/',
     },
     {
       title: 'Projects',
@@ -33,10 +35,27 @@ export class SidebarComponent implements OnInit {
     },
   ];
 
+  sidemenuInfo = [
+    {
+      title: 'Notifications',
+      icon: 'bell-outline',
+      activedIcon: 'folder',
+      dialog: NotiDialogComponent,
+    },
+    {
+      title: 'Invitations',
+      icon: 'person-add-outline',
+      activedIcon: 'settings-2',
+      dialog: InvitationDialogComponent,
+    },
+  ]; 
+
   constructor(
     private route: Router,
     private authService: AuthService,
-    private toastrService: NbToastrService
+    private toastrService: NbToastrService,
+    private dialogService: NbDialogService,
+    private activedRoute: ActivatedRoute, 
   ) {
     this.authService.getAuthState().subscribe((user) => {
       if (user) {
@@ -46,12 +65,20 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.selectedMenu = 0;
+    this.sidemenu.find(menu => {
+      if (menu.link === this.route.url) {
+        this.selectedMenu = this.sidemenu.indexOf(menu);
+      }
+    })
   }
 
   selectMenu(index: number) {
     this.selectedMenu = index;
     this.route.navigate([this.sidemenu[index].link]);
+  }
+
+  openDialog(dialog: any) {
+    this.dialogService.open(dialog);
   }
 
   logout() {

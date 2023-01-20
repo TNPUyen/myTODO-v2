@@ -1,0 +1,34 @@
+<nb-card  *ngIf="project && task">
+    <nb-card-header>
+        EDIT TASK
+    </nb-card-header>
+    <nb-card-body>
+        <p class="label-input">Task title*</p>
+        <input class="task-info-ipt" type="text" [(ngModel)]="newTaskTitle" placeholder="Enter task title...">
+        <p class="label-input">Task Description*</p>
+        <textarea rows="4" class="task-info-ipt" type="text" [(ngModel)]="newTaskDescription" placeholder="Enter task title..."></textarea>
+        <div class="select-assignee">
+            <p class="label-input">Assign to</p>
+            <nb-select placeholder="Choose Assignee" [(selected)]="selectedAssignee">
+                <nb-option *ngFor="let mem of project.members" [value]="mem">
+                    <div class="option-assignee">
+                        <img [src]="mem.photoURL" alt="">
+                        <p>{{mem.displayName}}</p>
+                    </div>
+                </nb-option>
+            </nb-select>    
+        </div>
+        <div class="select-assignee">
+            <p class="label-input">Status</p>
+            <nb-select placeholder="Choose Status" [(selected)]="selectedStatus">
+                <nb-option *ngFor="let status of statusOptions" [value]="status.value">
+                    {{status.label}}
+                </nb-option>
+            </nb-select>    
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <button class="btn-dialog cancelBtn" (click)="ref.close()">Cancel</button>
+        <button class="btn-dialog saveBtn" (click)="saveTask()">Save task</button>
+    </nb-card-footer>
+</nb-card>

@@ -12,7 +12,8 @@ export class UserService {
 
   private apiUrl = environment.apiUrl + '/users';
 
-  userInfo!: UserModel;
+  currentUserInfo!: UserModel;
+  user!: User;
 
   constructor(private http: HttpClient,) { }
 
@@ -25,7 +26,7 @@ export class UserService {
   }
 
 
-  getUserById(id: string) {
+  getUserById(id: string | null) {
     return this.http.get(`${this.apiUrl}/${id}`) as Observable<UserModel>;
   }
 

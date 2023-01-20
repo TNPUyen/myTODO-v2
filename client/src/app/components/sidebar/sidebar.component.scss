@@ -78,6 +78,11 @@
     }
 }
 
+.separate-hor{
+    border-top: 2px solid var(--light-gray);
+    margin: 0 20px;
+}
+
 .bottom-sidebar-content{
     width: 100%;
     display: flex;
@@ -111,6 +116,7 @@
         }
     }
 }
+
 
 
 // sidebar mobile view css
@@ -204,7 +210,15 @@
     }
 
     .bottom-sidebar-content{
-        width: 10%;
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .logout-btn{
+        width: 45%;
     }
 }
     

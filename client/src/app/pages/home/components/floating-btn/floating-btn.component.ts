@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { NewTodoDialogComponent } from '../new-todo-dialog/new-todo-dialog.component';
 
@@ -9,6 +9,7 @@ import { NewTodoDialogComponent } from '../new-todo-dialog/new-todo-dialog.compo
 })
 export class FloatingBtnComponent implements OnInit {
   @Input() owner!: string | null;
+  @Output() newTodo = new EventEmitter();
 
   constructor(private dialogService: NbDialogService) { }
 
@@ -21,6 +22,7 @@ export class FloatingBtnComponent implements OnInit {
         context: {
           owner: this.owner,
         }
-      });
+      })
+      .onClose.subscribe(newTodoContent => this.newTodo.emit(newTodoContent));
   }
 }

@@ -1,16 +1,16 @@
-<div class="home-container">
+<div class="home-container" *ngIf="userService.user != null">
     <div class="home-left-content">
         <div class="home-left-top">
-            <app-floating-btn [owner]="user.email" class="floating"></app-floating-btn>
-            <h1>Welcome back, <span>DEMO</span>!</h1>
+            <app-floating-btn [owner]="userService.user.uid" (newTodo)="addNewTodoToday($event)" class="floating"></app-floating-btn>
+            <h1>Welcome back, <span>{{userShortName}}</span>!</h1>
             <div class="home-left-top-info">
                 <!-- <h5><span>{{date | date:'EEEE'}}</span>, {{date | date:'dd/MM/yyyy'}}</h5> -->
-                <h5>Today you have <span>{{todoList != null ? todoList.length : 0}}</span> tasks to do.</h5>
+                <h5>Today you have <span>{{todoList != null ? todoFilterByOption.length : 0}}</span> tasks to do.</h5>
             </div>
         </div>
         <div class="home-left-body">
             <div class="home-left-bottom-content">
-                <app-personal-task [todo]="todo" *ngFor="let todo of todoList"></app-personal-task>
+                <app-personal-task (deleteTodoEvent)="deleteTodoEvent($event)" [todo]="todo" *ngFor="let todo of todoFilterByOption"></app-personal-task>
             </div>
         </div>
         <div class="home-left-footer">
@@ -29,12 +29,12 @@
                     </div>
                 </div>
                 <div class="filter-personal-task">
-                    <div class="filter-option-r check-option">
-                        <!-- <p>Check All</p> -->
-                        <p>Uncheck All</p>
+                    <div (click)="checkAllTodoDone()" class="filter-option-r check-option">
+                        <p *ngIf="!isCheckAll">Check All</p>
+                        <p *ngIf="isCheckAll">Uncheck All</p>
                     </div>
                     <div class="separate"></div>
-                    <div class="filter-option-r delete-option">
+                    <div class="filter-option-r delete-option" (click)="deleteMultipleTodo()">
                         <p>Delete Multi</p>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
             <img src="../../../assets//images/welcome_back.png" alt="">
         </div>
         <div class="home-right-bottom">
-            <nb-calendar [(date)]="date"></nb-calendar>
+            <nb-calendar [(date)]="pickedDate" (dateChange)="filterByDate($event)"></nb-calendar>
         </div>
     </div>
 </div>

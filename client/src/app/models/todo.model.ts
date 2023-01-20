@@ -1,8 +1,10 @@
-export interface Todo {
-    id: number;
+export interface TodoModel {
+    id: string;
+    todo_id: string,
     content: string;
     status: boolean;
     owner_id: string;
-    createdAt: number;
-    updatedAt: number;
+    created_at: number;
+    updated_at: number;
+    todo_date: number;
 }

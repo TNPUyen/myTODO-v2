@@ -1,9 +1,13 @@
-<nb-card>
+<nb-card style="width: 40vw">
     <nb-card-header>
         Add new todo
     </nb-card-header>
     <nb-card-body>
-        <input type="text" [(ngModel)]="newTodoContent">
+        <p class="label-input">Content</p>
+        <input type="text" [(ngModel)]="newTodoContent" placeholder="What to do..?">
+        <p class="label-input">Do at: </p>
+        <input [nbDatepicker]="datepicker" [(ngModel)]="todoDate">
+        <nb-datepicker #datepicker></nb-datepicker>
     </nb-card-body>
     <nb-card-footer>
         <div class="footer-dialog-add">

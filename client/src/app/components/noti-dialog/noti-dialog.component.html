@@ -1,0 +1,14 @@
+<nb-card>
+    <nb-card-header>
+        NOTIFICATIONS
+        <nb-icon nbTooltip="Close dialog" nbTooltipPlacement="top" (click)="ref.close()" [options]="{ animation: { type: 'pulse' } }" icon="close-outline"></nb-icon>
+    </nb-card-header>
+    <nb-card-body>
+         <div class="noti-list" *ngIf="notis.length !== 0">
+            <app-noti-item *ngFor="let noti of notis" [noti]="noti"></app-noti-item>
+         </div>
+         <div>
+            <p *ngIf="notis.length === 0">You have no notifications.</p>
+         </div>
+    </nb-card-body>
+</nb-card>
