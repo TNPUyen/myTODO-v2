@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { User } from '@angular/fire/auth';
 import { ActivatedRoute } from '@angular/router';
@@ -23,6 +24,11 @@ export class ProjectDetailComponent implements OnInit {
   todoTasks: TaskModel[] = [];
   doingTasks: TaskModel[] = [];
   doneTasks: TaskModel[] = [];
+  colTasks = [
+    "todoList",
+    "doingList",
+    "doneList",
+  ]
   // user!: User;
 
   constructor(
@@ -131,5 +137,25 @@ export class ProjectDetailComponent implements OnInit {
      
   }
   
+  // updateTaskEvent(task: TaskModel){
+  //   this.updateTaskStatusEvent.emit(task);
+  // }
+
+  // deleteTaskEvent(task: TaskModel){
+  //   this.deleteTaskStatusEvent.emit(task);
+  // }
+
+  drop(event: CdkDragDrop<any[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
+  }
 
 }
