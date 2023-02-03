@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
 export class NotiService {
   private apiUrl = environment.apiUrl+"/notifications";
 
+  notificationsCount = 0;
+
   constructor(private http: HttpClient) { }
 
   getNotis(){

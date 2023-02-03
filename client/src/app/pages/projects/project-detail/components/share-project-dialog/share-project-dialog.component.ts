@@ -4,6 +4,7 @@ import { InvitationModel } from 'src/app/models/invitation.model';
 import { ProjectModel } from 'src/app/models/project.model';
 import { UserModel } from 'src/app/models/user.model';
 import { InvitationService } from 'src/app/services/invitation/invitation.service';
+import { NotiService } from 'src/app/services/noti/noti.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -27,6 +28,7 @@ export class ShareProjectDialogComponent implements OnInit {
     private invitationService: InvitationService,
     private toastrService: NbToastrService,
     private userService: UserService,
+    private notiService: NotiService,
   ) { }
 
   ngOnInit(): void {
@@ -81,6 +83,10 @@ export class ShareProjectDialogComponent implements OnInit {
           });
         }
       );
+      if(this.userService.currentUserInfo.uid !== mem.uid) {
+        this.notiService.notificationsCount++;
+        console.log(this.notiService.notificationsCount);
+      }
     });
     
     this.ref.close();
