@@ -59,6 +59,11 @@ func (bl *InvitationBusinessLogic) GetInvitation(invitationID string) (*models.I
 }
 
 func (bl *InvitationBusinessLogic) CreateInvitation(invitation *models.Invitation) error {
+	alrInv, _ := bl.server.Db.Collection("invitations").Find(context.Background(), bson.D{primitive.E{Key: "receiver_id", Value: invitation.Receiver_id}, primitive.E{Key: "project_id", Value: invitation.Project_id}})
+	if alrInv.Err() == nil {
+		return echo.NewHTTPError(http.StatusBadRequest, "This user has already been invited to this project")
+	}
+
 	invitation.ID = primitive.NewObjectID()
 	_, err := bl.server.Db.Collection("invitations").InsertOne(context.Background(), invitation)
 	if err != nil {

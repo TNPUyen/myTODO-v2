@@ -41,7 +41,7 @@ func NewInvitationAPI(server *core.Server) *echo.Group {
 		if err != nil {
 			return err
 		}
-		return c.JSON(http.StatusOK, invitation)
+		return c.JSON(http.StatusOK, "Created invitation")
 	})
 
 	api.PUT("/:id", func(c echo.Context) error {

@@ -19,12 +19,69 @@
             </div>
         </div>
     </div>
-    <div class="project-task-col-bottom">
+    <div class="project-task-col-bottom" cdkDropListGroup>
         <div class="project-task-col-content">
             <!-- <app-project-task-col [taskList]="taskList" [taskColTitle]="'To do'"></app-project-task-col> -->
-            <app-project-task-col (updateTaskStatusEvent)="updateTaskStatusEvent($event)" (deleteTaskStatusEvent)="deleteTaskStatusEvent($event)" [colTitle]="'To do'" [colListTask]="todoTasks"></app-project-task-col>
+            <!-- <app-project-task-col (updateTaskStatusEvent)="updateTaskStatusEvent($event)" (deleteTaskStatusEvent)="deleteTaskStatusEvent($event)" [colTitle]="'To do'" [colListTask]="todoTasks"></app-project-task-col>
             <app-project-task-col (updateTaskStatusEvent)="updateTaskStatusEvent($event)" (deleteTaskStatusEvent)="deleteTaskStatusEvent($event)" [colTitle]="'Doing'" [colListTask]="doingTasks"></app-project-task-col>
-            <app-project-task-col  (updateTaskStatusEvent)="updateTaskStatusEvent($event)" (deleteTaskStatusEvent)="deleteTaskStatusEvent($event)" [colTitle]="'Done'" [colListTask]="doneTasks"></app-project-task-col>
+            <app-project-task-col  (updateTaskStatusEvent)="updateTaskStatusEvent($event)" (deleteTaskStatusEvent)="deleteTaskStatusEvent($event)" [colTitle]="'Done'" [colListTask]="doneTasks"></app-project-task-col> -->
+        
+            <div class="task-col-container" 
+                cdkDropList
+                #todoList="cdkDropList"
+                [cdkDropListData]="todoTasks"
+                [cdkDropListConnectedTo]="[doingList]"
+                (cdkDropListDropped)="drop($event)">
+                    <div class="task-col-title">
+                        <h3>To do</h3>
+                    </div>
+                    <div class="task-col-list">
+                        <div class="task-col-list-content" *ngIf="todoTasks.length !== 0">
+                            <app-project-task cdkDrag #projectTask *ngFor="let task of todoTasks" [task]="task" ></app-project-task>
+                        </div>
+                        <div class="task-col-list-content-non" *ngIf="todoTasks.length === 0">
+                            <p>0 <span> to do</span> tasks</p>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="task-col-container" 
+                cdkDropList
+                #doingList="cdkDropList"
+                [cdkDropListData]="doingTasks"
+                [cdkDropListConnectedTo]="[todoList, doneList]"
+                (cdkDropListDropped)="drop($event)">
+                    <div class="task-col-title">
+                        <h3>Doing</h3>
+                    </div>
+                    <div class="task-col-list">
+                        <div class="task-col-list-content" *ngIf="doingTasks.length !== 0">
+                            <app-project-task cdkDrag #projectTask *ngFor="let task of doingTasks" [task]="task" ></app-project-task>
+                        </div>
+                        <div class="task-col-list-content-non" *ngIf="doingTasks.length === 0">
+                            <p>0 <span> doing</span> tasks</p>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="task-col-container" 
+                cdkDropList
+                #doneList="cdkDropList"
+                [cdkDropListData]="doneTasks"
+                [cdkDropListConnectedTo]="[doingList]"
+                (cdkDropListDropped)="drop($event)">
+                    <div class="task-col-title">
+                        <h3>Done</h3>
+                    </div>
+                    <div class="task-col-list">
+                        <div class="task-col-list-content" *ngIf="doneTasks.length !== 0">
+                            <app-project-task cdkDrag #projectTask *ngFor="let task of doneTasks" [task]="task" ></app-project-task>
+                        </div>
+                        <div class="task-col-list-content-non" *ngIf="doneTasks.length === 0">
+                            <p>0 <span> done</span> tasks</p>
+                        </div>
+                    </div>
+            </div>
         </div>
     </div>
 </div>

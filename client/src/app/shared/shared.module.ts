@@ -6,6 +6,7 @@ import { NbAutocompleteModule, NbBadgeModule, NbCalendarModule, NbCardModule, Nb
 import { DropdownMenuComponent } from '../components/dropdown-menu/dropdown-menu.component';
 import { FormsModule } from '@angular/forms';
 
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -42,7 +43,9 @@ import { FormsModule } from '@angular/forms';
     NbAutocompleteModule,
     NbBadgeModule,
     NbSelectModule,
-    FormsModule
+    FormsModule,
+
+    DragDropModule,
   ]
 })
 export class SharedModule { }

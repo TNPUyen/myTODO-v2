@@ -23,7 +23,9 @@ export class InvitationDialogComponent implements OnInit {
     // this.user = JSON.parse(localStorage.getItem('user') || '{}');
 
     this.invitationService.getInvitationsByUserId(this.userService.user.uid).subscribe(invitations => {
-      this.invitations = invitations.reverse();
+      if(invitations){
+        this.invitations = invitations.reverse();
+      }
     });
   }
 

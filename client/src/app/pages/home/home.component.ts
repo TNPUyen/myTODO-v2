@@ -101,6 +101,14 @@ export class HomeComponent implements OnInit {
     ) {
       this.todoFilterByDate.unshift(newTodo);
       this.filterOptionChanged(this.filterOption);
+      this.todoService.getTodosByUserId(this.userService.user.uid).subscribe((todos) => {
+        if(todos !== null) {
+          this.todoList = todos.reverse();
+          this.getTodosByUserId();
+        }else{
+          this.todoList = [];
+        }
+      });
     }
     if(this.isCheckAll) {
       this.isCheckAll = false;

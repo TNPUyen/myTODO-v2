@@ -6,4 +6,5 @@ export interface InvitationModel {
     receiver_id: string;
     status: number;
     project: ShortProjectModel;
+    project_id: string;
 }

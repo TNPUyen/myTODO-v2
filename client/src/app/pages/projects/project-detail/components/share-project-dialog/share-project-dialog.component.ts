@@ -74,10 +74,12 @@ export class ShareProjectDialogComponent implements OnInit {
           name: this.project.name,
           description: this.project.description,
           owner: this.project.owner,
-        }
+        },
+        project_id: this.project.project_id,
       }
       this.invitationService.createInvitation(invitation).subscribe(
         (res) => {
+          console.log(res);
           this.toastrService.show('Success', 'Invitation sent!!', {
             status: 'success',
           });

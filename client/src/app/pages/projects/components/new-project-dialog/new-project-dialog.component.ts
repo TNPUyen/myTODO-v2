@@ -77,6 +77,7 @@ export class NewProjectDialogComponent implements OnInit {
           owner_id: this.owner_id,
           receiver_id: member.uid,
           status: 0,
+          project_id: newProject.project_id
         };
         this.inviteMem(newInvitation);
       });
@@ -107,7 +108,9 @@ export class NewProjectDialogComponent implements OnInit {
 
   inviteMem(invitation: InvitationModel){
     this.invitationService.createInvitation(invitation).subscribe(
-      (res) => {}
+      (res) => {
+        console.log(res);
+      }
     );
   }
 }
