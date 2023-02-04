@@ -137,13 +137,6 @@ export class ProjectDetailComponent implements OnInit {
      
   }
   
-  // updateTaskEvent(task: TaskModel){
-  //   this.updateTaskStatusEvent.emit(task);
-  // }
-
-  // deleteTaskEvent(task: TaskModel){
-  //   this.deleteTaskStatusEvent.emit(task);
-  // }
 
   drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {
@@ -156,6 +149,33 @@ export class ProjectDetailComponent implements OnInit {
         event.currentIndex,
       );
     }
+
+    if (event.container.id == 'cdk-drop-list-0') {
+      this.updateTaskFunc(event.container.data[event.currentIndex], 0);
+    } else if (event.container.id == 'cdk-drop-list-1') {
+      this.updateTaskFunc(event.container.data[event.currentIndex], 1);
+    } else {
+      this.updateTaskFunc(event.container.data[event.currentIndex], 2);
+    }
+  }
+
+  updateTaskFunc(task: any, status: any){
+    const data = {
+      ...task,
+      status: status,
+      updatedDate: Date.now(),
+    };
+    this.tasks.findIndex((task) => {
+      if(task.task_id === data.task_id){
+        task.status = data.status;
+      }
+    });
+    this.filterTasks();
+    this.taskService.updateTaskById(data.task_id, data).subscribe((res) => {
+      if(res == 'Updated successfully'){
+        this.toastrService.success('Task updated successfully', 'Success');
+      }
+    });
   }
 
 }
