@@ -33,11 +33,14 @@
                 [cdkDropListConnectedTo]="[doingList]"
                 (cdkDropListDropped)="drop($event)">
                     <div class="task-col-title">
-                        <h3>To do</h3>
+                        <div class="task-col-title-content">
+                            <h3>To do</h3>
+                            <div class="col-task-count"><p>{{todoTasks.length}}</p></div>
+                        </div>
                     </div>
                     <div class="task-col-list">
                         <div class="task-col-list-content" *ngIf="todoTasks.length !== 0">
-                            <app-project-task (updateTaskEvent)="updateTaskStatusEvent($event)"  #projectTask *ngFor="let task of todoTasks" [task]="task" ></app-project-task>
+                            <app-project-task (deleteTaskEvent)="deleteTaskStatusEvent($event)" (updateTaskEvent)="updateTaskStatusEvent($event)"  #projectTask *ngFor="let task of todoTasks" [task]="task" ></app-project-task>
                         </div>
                         <div class="task-col-list-content-non" *ngIf="todoTasks.length === 0">
                             <p>0 <span> to do</span> tasks</p>
@@ -52,11 +55,14 @@
                 [cdkDropListConnectedTo]="[todoList, doneList]"
                 (cdkDropListDropped)="drop($event)">
                     <div class="task-col-title">
-                        <h3>Doing</h3>
+                        <div class="task-col-title-content">
+                            <h3>Doing</h3>
+                            <div class="col-task-count"><p>{{doingTasks.length}}</p></div>
+                        </div>
                     </div>
                     <div class="task-col-list">
                         <div class="task-col-list-content" *ngIf="doingTasks.length !== 0">
-                            <app-project-task (updateTaskEvent)="updateTaskStatusEvent($event)"  #projectTask *ngFor="let task of doingTasks" [task]="task" ></app-project-task>
+                            <app-project-task (deleteTaskEvent)="deleteTaskStatusEvent($event)" (updateTaskEvent)="updateTaskStatusEvent($event)"  #projectTask *ngFor="let task of doingTasks" [task]="task" ></app-project-task>
                         </div>
                         <div class="task-col-list-content-non" *ngIf="doingTasks.length === 0">
                             <p>0 <span> doing</span> tasks</p>
@@ -71,11 +77,14 @@
                 [cdkDropListConnectedTo]="[doingList]"
                 (cdkDropListDropped)="drop($event)">
                     <div class="task-col-title">
-                        <h3>Done</h3>
+                        <div class="task-col-title-content">
+                            <h3>Done</h3>
+                            <div class="col-task-count"><p>{{doneTasks.length}}</p></div>
+                        </div>
                     </div>
                     <div class="task-col-list">
                         <div class="task-col-list-content" *ngIf="doneTasks.length !== 0">
-                            <app-project-task (updateTaskEvent)="updateTaskStatusEvent($event)" #projectTask *ngFor="let task of doneTasks" [task]="task" ></app-project-task>
+                            <app-project-task (deleteTaskEvent)="deleteTaskStatusEvent($event)" (updateTaskEvent)="updateTaskStatusEvent($event)" #projectTask *ngFor="let task of doneTasks" [task]="task" ></app-project-task>
                         </div>
                         <div class="task-col-list-content-non" *ngIf="doneTasks.length === 0">
                             <p>0 <span> done</span> tasks</p>

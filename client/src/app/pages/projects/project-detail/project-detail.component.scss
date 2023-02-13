@@ -141,7 +141,7 @@
 .task-col-container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     width: 25rem;
     height: 35rem;
@@ -154,13 +154,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10%;
+    height: 7%;
     width: 100%;
     border-bottom: 2px dashed var(--light-gray);
 
-    h3{
-        color: var(--gray-text);
+    .task-col-title-content{
+        width: 90%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+
+        h3{
+            color: var(--gray-text);
+            font-size: 1.3rem;
+        }
+
+        .col-task-count{
+            background-color: #FFEA84;
+            padding: 5px;
+            border-radius: 5px;
+
+            p{
+                color: var(--gray-text);
+                font-size: 1rem;
+            }
+        }
     }
+
 }
 
 .task-col-list{

@@ -49,7 +49,7 @@ func (bl ProjectBusinessLogic) GetProject(projectID string) (*models.Project, er
 
 func (bl ProjectBusinessLogic) GetProjectByOwner(ownerID string) ([]*models.Project, error) {
 	var projects []*models.Project
-	res, err := bl.server.Db.Collection("projects").Find(context.Background(), bson.D{primitive.E{Key: "owner", Value: ownerID}})
+	res, err := bl.server.Db.Collection("projects").Find(context.Background(), bson.D{primitive.E{Key: "owner", Value: ownerID}, primitive.E{Key: "disabled", Value: false}})
 	if err != nil {
 		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
@@ -63,7 +63,7 @@ func (bl ProjectBusinessLogic) GetProjectByOwner(ownerID string) ([]*models.Proj
 func (bl ProjectBusinessLogic) GetProjectJoinedIn(uid string) ([]*models.Project, error) {
 	var projects []*models.Project
 	// filter := bson.D{{Key: "member", Value: bson.D{{Key: "uid", Value: uid}}}}
-	filter := bson.M{"members": bson.M{"$elemMatch": bson.M{"uid": uid}}}
+	filter := bson.M{"members": bson.M{"$elemMatch": bson.M{"uid": uid}}, "disabled": false}
 	res, err := bl.server.Db.Collection("projects").Find(context.Background(), filter)
 	if err != nil {
 		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
@@ -84,8 +84,6 @@ func (bl ProjectBusinessLogic) CreateProject(project *models.Project) error {
 		return echo.NewHTTPError(http.StatusBadRequest, "This project Name is already exist")
 	}
 	project.ID = primitive.NewObjectID()
-	// project.Created_at = int(time.Now().Unix())
-	// project.Updated_at = int(time.Now().Unix())
 	_, err := bl.server.Db.Collection("projects").InsertOne(context.Background(), project)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
@@ -95,6 +93,9 @@ func (bl ProjectBusinessLogic) CreateProject(project *models.Project) error {
 
 func (bl ProjectBusinessLogic) UpdateProject(project *models.Project) (*models.Project, error) {
 	project.Updated_at = int(time.Now().Unix())
+	// if project.Disabled {
+	// 	return nil, echo.NewHTTPError(http.StatusBadRequest, "Project no longer exists")
+	// }
 	_, err := bl.server.Db.Collection("projects").UpdateOne(context.Background(), bson.M{"_id": project.ID}, bson.M{"$set": project})
 	if err != nil {
 		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())

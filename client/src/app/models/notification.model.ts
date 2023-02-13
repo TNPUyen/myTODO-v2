@@ -7,4 +7,5 @@ export interface NotificationModel {
     invitation_id: string;
     status: number;
     project: ShortProjectModel;
+    unread: boolean;
 }

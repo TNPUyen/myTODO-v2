@@ -9,4 +9,5 @@ export interface ProjectModel {
     members: UserModel[];
     created_at: number;
     updated_at: number;
+    disabled: boolean;
 }

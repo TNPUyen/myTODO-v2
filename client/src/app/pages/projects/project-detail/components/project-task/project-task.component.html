@@ -7,11 +7,11 @@
     </div>
     <div class="project-task-bottom">
         <div class="project-task-bottom-content">
-            <div class="project-task-assigned">
+            <div class="project-task-assigned" *ngFor="let asignee of task.asignee">
                 <div class="user-assigned-ava">
-                    <img [src]="task.asignee.photoURL" alt="">
+                    <img [src]="asignee.photoURL" alt="">
                 </div>
-                <p>{{task.asignee.displayName}}</p>
+                <p>{{asignee.displayName}}</p>
             </div>
             <div class="project-task-options">
                 <div class="optionBtn editBtn" nbTooltip="Edit" (click)="openTaskEditDialog()">

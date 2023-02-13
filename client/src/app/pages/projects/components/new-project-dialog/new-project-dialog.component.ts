@@ -66,7 +66,8 @@ export class NewProjectDialogComponent implements OnInit {
       members: [],
       created_at: Date.now(),
       updated_at: Date.now(),
-      id: ''
+      id: '',
+      disabled: false
     };
    
     if(this.members.length !== 0){
@@ -77,7 +78,8 @@ export class NewProjectDialogComponent implements OnInit {
           owner_id: this.owner_id,
           receiver_id: member.uid,
           status: 0,
-          project_id: newProject.project_id
+          project_id: newProject.project_id,
+          unread: true,
         };
         this.inviteMem(newInvitation);
       });
@@ -109,6 +111,9 @@ export class NewProjectDialogComponent implements OnInit {
   inviteMem(invitation: InvitationModel){
     this.invitationService.createInvitation(invitation).subscribe(
       (res) => {
+        this.toastrService.show('Success', 'Invitation sent!!', {
+          status: 'success',
+        });
         console.log(res);
       }
     );

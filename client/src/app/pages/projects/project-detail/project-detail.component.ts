@@ -77,6 +77,12 @@ export class ProjectDetailComponent implements OnInit {
       if(task){
         this.todoTasks.unshift(task);
       }
+      this.taskService.getTasksByProjectId(this.projectInfo.project_id).subscribe((res) => {
+        if(res){
+          this.tasks = res;
+          this.filterTasks();
+        }
+      });
     });
   } 
 
@@ -106,23 +112,29 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   deleteTaskStatusEvent(task: TaskModel){
-    this.taskService.getTasksByProjectId(this.projectInfo.project_id).subscribe((res) =>{
-      if(res){
-        this.tasks = res;
-        this.filterTasks();
-      }
-    });
+    // this.taskService.getTasksByProjectId(this.projectInfo.project_id).subscribe((res) =>{
+    //   if(res){
+    //     this.tasks = res;
+    //     this.filterTasks();
+    //   }
+    // });
+    this.tasks.splice(this.tasks.indexOf(task), 1);
+    this.filterTasks();
+    console.log(this.tasks)
   }
 
   deleteProject(){
     if(this.userService.user.uid === this.projectInfo.owner){
-      this.taskService.deleteTasksByProjectId(this.projectInfo.project_id).subscribe(
-        () => {}
-      );
-
-      this.projectService.deleteProjectById(this.projectInfo.project_id).subscribe(
+      // this.taskService.deleteTasksByProjectId(this.projectInfo.project_id).subscribe(
+      //   () => {}
+      // );
+      let updatedProject = {
+        ...this.projectInfo,
+        disabled: true,
+      }
+      this.projectService.deleteProjectById(this.projectInfo.project_id, updatedProject).subscribe(
         (res) => {
-          this.toastrService.show('Success', res, {
+          this.toastrService.show('Success', 'Delete successfully!', {
             status: 'success',
           });
         }
@@ -150,12 +162,14 @@ export class ProjectDetailComponent implements OnInit {
       );
     }
 
-    if (event.container.id == 'cdk-drop-list-0') {
-      this.updateTaskFunc(event.container.data[event.currentIndex], 0);
-    } else if (event.container.id == 'cdk-drop-list-1') {
-      this.updateTaskFunc(event.container.data[event.currentIndex], 1);
-    } else {
-      this.updateTaskFunc(event.container.data[event.currentIndex], 2);
+    if(event.container.id != event.previousContainer.id){
+      if (event.container.id == 'cdk-drop-list-0') {
+        this.updateTaskFunc(event.container.data[event.currentIndex], 0);
+      } else if (event.container.id == 'cdk-drop-list-1') {
+        this.updateTaskFunc(event.container.data[event.currentIndex], 1);
+      } else {
+        this.updateTaskFunc(event.container.data[event.currentIndex], 2);
+      }
     }
   }
 

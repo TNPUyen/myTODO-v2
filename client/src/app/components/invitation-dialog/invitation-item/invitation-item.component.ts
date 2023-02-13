@@ -26,7 +26,8 @@ export class InvitationItemComponent implements OnInit {
     private invitationService: InvitationService,
     private toastr: NbToastrService,
     private projectService: ProjectService,
-    private notiService: NotiService
+    private notiService: NotiService,
+    private toastrService: NbToastrService,
     ) { }
 
   ngOnInit(): void {
@@ -45,6 +46,15 @@ export class InvitationItemComponent implements OnInit {
 
   replyInvitation(isAgree: number) {
     this.invitation.status =  isAgree;
+    
+    this.projectService.getProject(this.tempProject.project_id).subscribe((res) => {
+      if(res.disabled){
+        this.toastrService.show('Error', 'Project no longer exists!!', {
+          status: 'danger',
+        });
+        return;
+      }
+    });
     this.invitationService.updateInvitationById(this.invitation.id, this.invitation).subscribe(
       invitation => {
         this.invitationService.deleteInvitationById(this.invitation.id).subscribe(
@@ -79,6 +89,7 @@ export class InvitationItemComponent implements OnInit {
       invitation_id: Date.now().toString(),
       status: 0,
       project: this.invitation.project,
+      unread: true
     };
     if(isAgree == 1) {
        noti.status = 1;

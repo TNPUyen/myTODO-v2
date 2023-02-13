@@ -7,4 +7,5 @@ export interface InvitationModel {
     status: number;
     project: ShortProjectModel;
     project_id: string;
+    unread: boolean;
 }

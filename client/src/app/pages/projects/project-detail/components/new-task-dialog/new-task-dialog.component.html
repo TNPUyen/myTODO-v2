@@ -9,7 +9,7 @@
         <p class="label-input">Description*</p>
         <input class="task-info-ipt" type="text" [(ngModel)]="taskDescription" placeholder="This task is about...">
         
-        <div class="select-assignee">
+        <!-- <div class="select-assignee">
             <p class="label-input">Assign to</p>
             <nb-select placeholder="Choose Assignee" [(selected)]="selectedAssignee">
                 <nb-option *ngFor="let mem of project.members" [value]="mem">
@@ -19,7 +19,31 @@
                     </div>
                 </nb-option>
             </nb-select>    
+        </div> -->
+        <div class="select-assignee">
+            <p class="label-input">Assign to</p>
+            <nb-tag-list (tagRemove)="onTagRemove($event)">
+                <nb-tag *ngFor="let tag of tags" [text]="tag" removable></nb-tag>
+                <input type="text" nbTagInput placeholder="Assign to..." [nbAutocomplete]="autocomplete" fullWidth>
+            </nb-tag-list>
+            <nb-autocomplete #autocomplete (selectedChange)="onTagAdd($event)">
+                <nb-option class="option" *ngFor="let mem of project.members" [value]="mem">
+                    <img [src]="mem.photoURL" alt="">
+                    <h6>{{mem.displayName}}</h6>
+                </nb-option>
+            </nb-autocomplete>   
         </div>
+        <div class="task-label">
+            <p class="label-input">Label</p>
+            <nb-select placeholder="Choose label" [(selected)]="selectedLabel">
+                <nb-option *ngFor="let label of optionLabels" [value]="label">
+                    <div class="option-assignee">
+                        <p>{{label.label}}</p>
+                    </div>
+                </nb-option>
+            </nb-select>    
+        </div>
+        
     </nb-card-body>
     <nb-card-footer>
         <button class="btn-dialog cancelBtn" (click)="ref.close()">Cancel</button>

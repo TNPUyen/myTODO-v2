@@ -5,6 +5,7 @@ import { ProjectModel } from 'src/app/models/project.model';
 import { UserModel } from 'src/app/models/user.model';
 import { InvitationService } from 'src/app/services/invitation/invitation.service';
 import { NotiService } from 'src/app/services/noti/noti.service';
+import { ProjectService } from 'src/app/services/project/project.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -50,6 +51,7 @@ export class ShareProjectDialogComponent implements OnInit {
   onTagAdd(value: UserModel): void {
     if (value) {
       this.tags.add(value.displayName);
+      console.log(this.tags);
       this.members.push(value);
       this.options = this.options.filter((o) => o !== value);
     }
@@ -76,7 +78,9 @@ export class ShareProjectDialogComponent implements OnInit {
           owner: this.project.owner,
         },
         project_id: this.project.project_id,
+        unread: true
       }
+      
       this.invitationService.createInvitation(invitation).subscribe(
         (res) => {
           console.log(res);

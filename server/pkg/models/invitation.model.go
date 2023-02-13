@@ -9,4 +9,5 @@ type Invitation struct {
 	Status      int                `json:"status" bson:"status"` // bson:"status,omitempty" is used to ignore the field when inserting a new document
 	Project     *ShortProject      `json:"project" bson:"project"`
 	Project_id  string             `json:"project_id" bson:"project_id"`
+	Unread      bool               `json:"unread" bson:"unread"` // Unread is used to check if the project has unread messages
 }

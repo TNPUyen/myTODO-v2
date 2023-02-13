@@ -6,7 +6,7 @@ export interface TaskModel{
     name: string;
     task_id: string;
     description: string;
-    asignee: UserModel;
+    asignee: UserModel[];
     status: number;
     created_at: number;
     updated_at: number;

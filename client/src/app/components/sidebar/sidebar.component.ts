@@ -3,6 +3,7 @@ import { User } from '@angular/fire/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbDialogService, NbToastrService } from '@nebular/theme';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { InvitationService } from 'src/app/services/invitation/invitation.service';
 import { InvitationDialogComponent } from '../invitation-dialog/invitation-dialog.component';
 import { NotiDialogComponent } from '../noti-dialog/noti-dialog.component';
 
@@ -41,12 +42,14 @@ export class SidebarComponent implements OnInit {
       icon: 'bell-outline',
       activedIcon: 'folder',
       dialog: NotiDialogComponent,
+      unRead: '0',
     },
     {
       title: 'Invitations',
       icon: 'person-add-outline',
       activedIcon: 'settings-2',
       dialog: InvitationDialogComponent,
+      unRead: '0',
     },
   ]; 
 
@@ -55,6 +58,7 @@ export class SidebarComponent implements OnInit {
     private authService: AuthService,
     private toastrService: NbToastrService,
     private dialogService: NbDialogService,
+    private invitationService: InvitationService,
     private activedRoute: ActivatedRoute, 
   ) {
     this.authService.getAuthState().subscribe((user) => {
@@ -65,6 +69,7 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sidemenuInfo[1].unRead = this.invitationService.countUnReadInvitations.toString();
     this.sidemenu.find(menu => {
       if (menu.link === this.route.url) {
         this.selectedMenu = this.sidemenu.indexOf(menu);
@@ -79,6 +84,17 @@ export class SidebarComponent implements OnInit {
 
   openDialog(dialog: any) {
     this.dialogService.open(dialog);
+    this.invitationService.invitations.forEach(invitation => {
+      if(invitation.unread){
+
+        invitation = {...invitation, unread: false};
+        console.log(invitation);
+
+        this.invitationService.updateInvitationById(invitation.id, invitation);
+      }
+      this.invitationService.countUnReadInvitations = 0;
+
+    });
   }
 
   logout() {

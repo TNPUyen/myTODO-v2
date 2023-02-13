@@ -12,8 +12,9 @@
         </ul>
         <div class="separate-hor"></div>
         <ul class="side_menu">
-          <li (click)="openDialog(menuInfo.dialog)" class="menu" [nbTooltip]="menuInfo.title" nbTooltipPlacement="right"
+          <li  (click)="openDialog(menuInfo.dialog)" class="menu" [nbTooltip]="menuInfo.title" nbTooltipPlacement="right"
             *ngFor="let menuInfo of sidemenuInfo; let i = index">
+            <nb-badge *ngIf="menuInfo.unRead != '0'" status="danger" position="top right" [text]="menuInfo.unRead"></nb-badge>
             <nb-icon [options]="{ animation: { type: 'pulse' } }" class="menu-icon" [icon]="menuInfo.icon"></nb-icon>
           </li>
         </ul>

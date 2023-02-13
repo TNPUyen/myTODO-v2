@@ -13,6 +13,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class InvitationDialogComponent implements OnInit {
   // user!: User;
   invitations: InvitationModel[] = [];
+  countUnReadInvitations: number = 0;
   constructor(
     public ref: NbDialogRef<InvitationDialogComponent>,
     private invitationService: InvitationService,
@@ -20,14 +21,31 @@ export class InvitationDialogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.invitations = this.invitationService.invitations;
+    // this.getUnReadInvitations();
     // this.user = JSON.parse(localStorage.getItem('user') || '{}');
 
-    this.invitationService.getInvitationsByUserId(this.userService.user.uid).subscribe(invitations => {
-      if(invitations){
-        this.invitations = invitations.reverse();
+    // this.invitationService.getInvitationsByUserId(this.userService.user.uid).subscribe(invitations => {
+    //   if(invitations){
+    //     this.invitations = invitations.reverse();
+    //     this.countUnReadInvitations = this.invitations.filter(invitation => invitation.unread).length;
+    //     console.log(this.countUnReadInvitations);
+    //   }
+    // });
+  }
+
+  getUnReadInvitations(){
+    console.log('go')
+    this.invitationService.invitations.forEach(invitation => {
+      if(invitation.unread){
+        invitation = {...invitation, unread: false};
+        this.invitationService.countUnReadInvitations--;
+        this.invitationService.updateInvitationById(invitation.id, invitation);
       }
     });
+    console.log(this.invitationService.invitations)
   }
+
 
   repliedInvitationEvent(event: any){
     this.invitations.splice(this.invitations.indexOf(event), 1);

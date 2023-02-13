@@ -9,6 +9,9 @@ import { environment } from 'src/environments/environment';
 })
 export class InvitationService {
   private apiUrl = environment.apiUrl+"/invitations";
+
+  countUnReadInvitations: number = 0;
+  invitations: InvitationModel[] = [];
   
   constructor(private http: HttpClient,) { }
 
@@ -21,6 +24,7 @@ export class InvitationService {
   }
 
   getInvitationsByUserId(uid: string){
+    console.log("getInvitationsByUserId: ", uid);
     return this.http.get(`${this.apiUrl}/byUser/${uid}`) as Observable<InvitationModel[]>;
   }
 

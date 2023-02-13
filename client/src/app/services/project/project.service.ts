@@ -38,8 +38,9 @@ export class ProjectService {
     return this.http.put(`${this.apiUrl}/${project_id}`, updatedProject);
   }
 
-  deleteProjectById(project_id: string) {
-    return this.http.delete(`${this.apiUrl}/${project_id}`)  as Observable<string>;
+  deleteProjectById(project_id: string, updatedProject: any) {
+    return this.http.put(`${this.apiUrl}/${project_id}`, updatedProject);
+    // return this.http.delete(`${this.apiUrl}/${project_id}`)  as Observable<string>;
   }
 
 }

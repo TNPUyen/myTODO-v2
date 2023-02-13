@@ -7,7 +7,7 @@
         <input class="task-info-ipt" type="text" [(ngModel)]="newTaskTitle" placeholder="Enter task title...">
         <p class="label-input">Task Description*</p>
         <textarea rows="4" class="task-info-ipt" type="text" [(ngModel)]="newTaskDescription" placeholder="Enter task title..."></textarea>
-        <div class="select-assignee">
+        <!-- <div class="select-assignee">
             <p class="label-input">Assign to</p>
             <nb-select placeholder="Choose Assignee" [(selected)]="selectedAssignee">
                 <nb-option *ngFor="let mem of project.members" [value]="mem">
@@ -17,7 +17,7 @@
                     </div>
                 </nb-option>
             </nb-select>    
-        </div>
+        </div> -->
         <div class="select-assignee">
             <p class="label-input">Status</p>
             <nb-select placeholder="Choose Status" [(selected)]="selectedStatus">

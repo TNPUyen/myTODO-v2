@@ -35,15 +35,15 @@ export class TaskEditComponent implements OnInit {
   ngOnInit(): void {
     this.project = this.projectService.projectInfo;
     this.selectedStatus = this.task.status;
-    this.selectedAssignee = this.project.members[this.getAsigneeIndex(this.project)];
+    // this.selectedAssignee = this.project.members[this.getAsigneeIndex(this.project)];
     this.newTaskTitle = this.task.name;
     this.newTaskDescription = this.task.description;
   }
 
-  getAsigneeIndex(project: ProjectModel){
-    const temp = this.project.members.find(mem => mem.uid === this.task.asignee.uid) as UserModel;
-    return project.members.indexOf(temp);
-  }
+  // getAsigneeIndex(project: ProjectModel){
+  //   const temp = this.project.members.find(mem => mem.uid === this.task.asignee.uid) as UserModel;
+  //   return project.members.indexOf(temp);
+  // }
 
   saveTask(){
     let temp = Math.abs(this.selectedStatus- this.task.status);

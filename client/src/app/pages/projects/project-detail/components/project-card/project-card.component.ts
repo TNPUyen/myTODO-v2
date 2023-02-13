@@ -28,9 +28,13 @@ export class ProjectCardComponent implements OnInit {
 
   deleteProject(project_id: string) {
    if(this.owner.uid === this.project.owner){
-    this.projectService.deleteProjectById(project_id).subscribe(
+    let updatedProject = {
+      ...this.project,
+      disabled: true
+    };
+    this.projectService.deleteProjectById(project_id, updatedProject).subscribe(
       (res) => {
-        this.toastrService.show('Success', res, {
+        this.toastrService.show('Success', 'Delete successfully!', {
           status: 'success',
         });
       }
