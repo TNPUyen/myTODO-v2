@@ -1,6 +1,6 @@
 .project-card{
-    width: 20rem;
-    height: 12rem;
+    width: 18rem;
+    height: 13rem;
     border-radius: 5px;
     border: 2px solid #e0e0e0;
     display: flex;
@@ -23,15 +23,17 @@
     flex-direction: column;
 }
 
-h4{
+h6{
     margin: 5px 0 10px 0;
     font-weight: 700;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    font-size: 1.1rem;
 }
 
 p{
+    font-size: 0.8rem;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;

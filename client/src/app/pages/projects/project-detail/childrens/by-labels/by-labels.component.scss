@@ -128,3 +128,11 @@
     grid-template-rows: repeat(auto-fill, minmax(13em, 1fr));
     overflow-x: hidden;
 }
+
+
+// responsive css
+@media screen and (max-height: 720px) {
+    .by-label-list {
+        height: 30rem !important;
+    }
+}

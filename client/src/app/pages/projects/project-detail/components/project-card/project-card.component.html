@@ -1,7 +1,7 @@
 <div class="project-card" [nbTooltip]="project.name" nbTooltipPlacement="top">
     <div class="project-card-content">
         <div class="project-card-top"  (click)="projectDetail(project.project_id)">
-            <h4 class="project-title">{{project.name}}</h4>
+            <h6 class="project-title">{{project.name}}</h6>
             <p class="project-summary" *ngIf="project.description !== ''">{{project.description}}</p>
             <p class="project-non-summary">This project doesn't have summary ...</p>
         </div>
