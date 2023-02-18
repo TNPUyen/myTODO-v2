@@ -44,7 +44,7 @@ export class ProjectCardComponent implements OnInit {
   }
 
   projectDetail(id: string){
-    this.route.navigate(['projects', id])
+    this.route.navigate([`projects/${id}/all`])
   }
 
 }

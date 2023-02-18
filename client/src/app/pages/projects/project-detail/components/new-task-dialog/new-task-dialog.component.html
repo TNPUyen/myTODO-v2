@@ -33,15 +33,27 @@
                 </nb-option>
             </nb-autocomplete>   
         </div>
-        <div class="task-label">
-            <p class="label-input">Label</p>
-            <nb-select placeholder="Choose label" [(selected)]="selectedLabel">
-                <nb-option *ngFor="let label of optionLabels" [value]="label">
-                    <div class="option-assignee">
-                        <p>{{label.label}}</p>
-                    </div>
-                </nb-option>
-            </nb-select>    
+        <div class="label-prio-container">
+            <div class="task-label">
+                <p class="label-input">Label</p>
+                <nb-select placeholder="Choose label" [(selected)]="selectedLabel">
+                    <nb-option *ngFor="let label of optionLabels" [value]="label">
+                        <div class="option-assignee">
+                            <p>{{label.label}}</p>
+                        </div>
+                    </nb-option>
+                </nb-select>    
+            </div>
+            <div class="task-prio">
+                <p class="label-input">Priority</p>
+                <nb-select placeholder="Choose Priority" [(selected)]="selectedPriority">
+                    <nb-option *ngFor="let prio of optionPriorities" [value]="prio">
+                        <div class="option-assignee">
+                            <p>{{prio.label}}</p>
+                        </div>
+                    </nb-option>
+                </nb-select>    
+            </div>
         </div>
         
     </nb-card-body>

@@ -15,6 +15,7 @@ export class NewTaskDialogComponent implements OnInit {
 
   selectedAssignee: UserModel[] = [];
   selectedLabel!: any;
+  selectedPriority!: any;
   project!: ProjectModel;
   taskName: string = '';
   taskDescription: string = '';
@@ -26,6 +27,12 @@ export class NewTaskDialogComponent implements OnInit {
     { value: '3', label: 'Back-end' },
     { value: '4', label: 'Front-end' },
   ];
+
+  optionPriorities = [
+    { value: '0', label: 'Low' },
+    { value: '1', label: 'Medium' },
+    { value: '2', label: 'High' },
+  ]
 
   @ViewChild(NbTagInputDirective, { read: ElementRef })
   tagInput!: ElementRef<HTMLInputElement>;

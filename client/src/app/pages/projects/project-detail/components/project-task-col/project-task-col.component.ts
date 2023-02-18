@@ -23,7 +23,7 @@ export class ProjectTaskColComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.projectTask);
+    // console.log(this.projectTask);
   }
 
   updateTaskEvent(task: TaskModel){

@@ -1,7 +1,7 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { User } from '@angular/fire/auth';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NbDialogService, NbToastrService } from '@nebular/theme';
 import { ProjectModel } from 'src/app/models/project.model';
 import { TaskModel } from 'src/app/models/task.model';
@@ -24,15 +24,35 @@ export class ProjectDetailComponent implements OnInit {
   todoTasks: TaskModel[] = [];
   doingTasks: TaskModel[] = [];
   doneTasks: TaskModel[] = [];
+  selectedTab = 0;
   colTasks = [
     "todoList",
     "doingList",
     "doneList",
+  ];
+
+  tabOptions=[
+    {
+      title: 'All task',
+      icon: 'archive-outline',
+      link: 'all',
+    },
+    {
+      title: 'By label',
+      icon: 'pricetags-outline',
+      link: 'label',
+    },
+    {
+      title: 'Due date',
+      icon: 'calendar-outline',
+      link: 'date',
+    },
   ]
   // user!: User;
 
   constructor(
     private route: ActivatedRoute, 
+    private router: Router,
     private projectService: ProjectService,
     private toastrService: NbToastrService,
     private dialogService: NbDialogService, 
@@ -56,6 +76,11 @@ export class ProjectDetailComponent implements OnInit {
         }
       });
     })
+  }
+
+  selectTab(index: number){
+    this.selectedTab = index;
+    this.router.navigate([`/projects/${this.projectInfo.project_id}/${this.tabOptions[index].link}`])
   }
 
   goBack() {

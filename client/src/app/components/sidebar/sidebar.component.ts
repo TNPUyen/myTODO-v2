@@ -71,7 +71,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.sidemenuInfo[1].unRead = this.invitationService.countUnReadInvitations.toString();
     this.sidemenu.find(menu => {
-      if (menu.link === this.route.url) {
+      if (menu.link === this.route.url || this.route.url.includes(menu.link)) {
         this.selectedMenu = this.sidemenu.indexOf(menu);
       }
     })

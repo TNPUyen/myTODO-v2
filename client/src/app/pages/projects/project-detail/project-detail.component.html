@@ -1,4 +1,4 @@
-<div class="project-detail-container" *ngIf="projectInfo">
+<!-- <div class="project-detail-container" *ngIf="projectInfo">
     <div class="project-detail-top-option">
         <div style="display: flex; justify-content: center; align-items: center;">
             <nb-icon [options]="{ animation: { type: 'pulse' } }" (click)="goBack()" class="backBtn" style="font-size: 1rem; margin-right: 10px;" icon="arrow-circle-left-outline"></nb-icon>
@@ -11,9 +11,6 @@
             <div class="option-btn share-btn" (click)="openShareDialog()">
                 <nb-icon [options]="{ animation: { type: 'pulse' } }" style="font-size: 1.5rem" nbTooltip="Share" nbTooltipPlacement="top"  icon="share-outline"></nb-icon>
             </div>
-            <!-- <div class="option-btn info-btn" (click)="openProjectInfoDialog()">
-                <nb-icon [options]="{ animation: { type: 'pulse' } }" style="font-size: 1.5rem" nbTooltip="Project's info" nbTooltipPlacement="top"  icon="info-outline"></nb-icon>
-            </div> -->
             <div class="option-btn delete-btn" (click)="deleteProject()">
                 <nb-icon [options]="{ animation: { type: 'pulse' } }" style="font-size: 1.5rem" nbTooltip="Delete project" nbTooltipPlacement="top"  icon="trash-2-outline"></nb-icon>
             </div>
@@ -21,10 +18,10 @@
     </div>
     <div class="project-task-col-bottom" cdkDropListGroup>
         <div class="project-task-col-content">
-            <!-- <app-project-task-col [taskList]="taskList" [taskColTitle]="'To do'"></app-project-task-col> -->
-            <!-- <app-project-task-col (updateTaskStatusEvent)="updateTaskStatusEvent($event)" (deleteTaskStatusEvent)="deleteTaskStatusEvent($event)" [colTitle]="'To do'" [colListTask]="todoTasks"></app-project-task-col>
+            <app-project-task-col [taskList]="taskList" [taskColTitle]="'To do'"></app-project-task-col>
+            <app-project-task-col (updateTaskStatusEvent)="updateTaskStatusEvent($event)" (deleteTaskStatusEvent)="deleteTaskStatusEvent($event)" [colTitle]="'To do'" [colListTask]="todoTasks"></app-project-task-col>
             <app-project-task-col (updateTaskStatusEvent)="updateTaskStatusEvent($event)" (deleteTaskStatusEvent)="deleteTaskStatusEvent($event)" [colTitle]="'Doing'" [colListTask]="doingTasks"></app-project-task-col>
-            <app-project-task-col  (updateTaskStatusEvent)="updateTaskStatusEvent($event)" (deleteTaskStatusEvent)="deleteTaskStatusEvent($event)" [colTitle]="'Done'" [colListTask]="doneTasks"></app-project-task-col> -->
+            <app-project-task-col  (updateTaskStatusEvent)="updateTaskStatusEvent($event)" (deleteTaskStatusEvent)="deleteTaskStatusEvent($event)" [colTitle]="'Done'" [colListTask]="doneTasks"></app-project-task-col>
         
             <div class="task-col-container" 
                 cdkDropList
@@ -91,6 +88,25 @@
                         </div>
                     </div>
             </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="project-detail-container">
+    <div class="project-detail-info">
+        <h2>{{projectInfo.name}}</h2>
+    </div>
+    <div class="project-detail-content">
+        <div class="project-tab-option">
+            <div class="project-tab-option-list">
+                <button (click)="selectTab(i)" [class]="selectedTab == i ? 'tab-active' : 'project-tab-option-btn'" *ngFor="let tab of tabOptions; let i = index">
+                    <nb-icon [icon]="tab.icon"></nb-icon>
+                    <p>{{tab.title}}</p>
+                </button>
+            </div>
+        </div>
+        <div class="project-tab-option-content">
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

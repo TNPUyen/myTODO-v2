@@ -1,5 +1,5 @@
 nb-card{
-    width: 30vw;
+    width: 38vw;
 }
 
 nb-card-footer{
@@ -97,4 +97,10 @@ nb-select {
         object-fit: cover;
         border: 2px solid #d1d1d1;
     }
+}
+
+.label-prio-container{
+   display: flex; 
+   flex-direction: row; 
+   justify-content: space-between;
 }
