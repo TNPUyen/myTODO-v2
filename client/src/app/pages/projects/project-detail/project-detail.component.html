@@ -99,9 +99,16 @@
     <div class="project-detail-content">
         <div class="project-tab-option">
             <div class="project-tab-option-list">
-                <button (click)="selectTab(i)" [class]="selectedTab == i ? 'tab-active' : 'project-tab-option-btn'" *ngFor="let tab of tabOptions; let i = index">
+                <button (click)="selectTab(i)" [class]="selectedTab == i ? 'tab-active' : 'project-tab-option-btn'"
+                    *ngFor="let tab of tabOptions; let i = index">
                     <nb-icon [icon]="tab.icon"></nb-icon>
                     <p>{{tab.title}}</p>
+                </button>
+            </div>
+            <div class="project-tab-right-option">
+                <button class="project-tab-option-btn" (click)="openAddTaskDialog()">
+                    <nb-icon icon="plus-outline"></nb-icon>
+                    <p>Add task</p>
                 </button>
             </div>
         </div>

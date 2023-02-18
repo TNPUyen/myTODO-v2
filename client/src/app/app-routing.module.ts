@@ -9,16 +9,15 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutsComponent,
+    canActivate: [HomeGuard],
     children: [
       {
         path: '',
-        canActivate: [HomeGuard],
         loadChildren: () =>
           import('./pages/home/home.module').then((m) => m.HomeModule),
       },
       {
         path: 'projects',
-        canActivate: [HomeGuard],
         loadChildren: () =>
           import('./pages/projects/projects.module').then(
             (m) => m.ProjectsModule
@@ -26,7 +25,6 @@ const routes: Routes = [
       },
       {
         path: 'projects/:id',
-        canActivate: [HomeGuard],
         loadChildren: () =>
           import('./pages/projects/project-detail/project-detail.module').then(
             (m) => m.ProjectDetailModule
@@ -64,4 +62,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

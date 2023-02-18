@@ -1,0 +1,314 @@
+// .project-task-container{
+//     width: 100%;
+//     height: 10rem;
+//     border-radius: 10px;
+//     margin: 10px 0;
+//     border: 2px solid var(--light-gray);
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     background-color: white;
+
+//     &:hover{
+//         cursor: pointer;
+//         border: 2px solid var(--primary);
+//     }
+// }
+
+
+// h4{
+//     font-weight: 700;
+//     text-overflow: ellipsis;
+//     overflow: hidden;
+//     white-space: nowrap;
+//     margin: 10px 0 3px 0;
+//     font-size: 1.3rem;
+// }
+
+
+// .project-task-info{
+//     width: 90%;
+//     height: 70%;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+// .project-task-info-content{
+//     width: 100%;
+//     height: 90%;
+//     display: flex;
+//     flex-direction: column;
+
+
+//     p{
+//         margin-bottom: 3px;
+//         font-size: 1rem;
+//         overflow: hidden;
+//         display: -webkit-box;
+//         -webkit-box-orient: vertical;
+//         -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
+//         white-space: pre-wrap; /* let the text wrap preserving spaces */
+//     }
+// }
+// .project-task-bottom{
+//     width: 100%;
+//     height: 30%;
+//     border-top: 2px solid var(--light-gray);
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+
+
+// .project-task-bottom-content{
+//     width: 90%;
+//     height: 100%;
+
+//     display: flex;
+//     align-items: center;
+//     flex-direction: row;
+//     justify-content: space-between;
+// }
+
+// .project-task-assigned{
+//     height: 100%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: flex-start;
+//     flex-direction: row;
+
+//     p{
+//         font-weight: 600;
+//         text-overflow: ellipsis;
+//         overflow: hidden;
+//         white-space: nowrap;
+//     }
+// }
+
+// .user-assigned-ava{
+//     width: 2rem;
+//     height: 2rem;
+//     margin-right: 5px;
+//     display: flex;
+//     justify-content: center;
+
+//     img{
+//         width: 100%;
+//         height: 100%;
+//         border-radius: 50%;
+//         border: 2px solid #d1d1d1;
+//     }
+// }
+
+// .project-task-options{
+//     height: 100%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: flex-end;
+//     flex-direction: row;
+// }
+
+// .optionBtn{
+//     width: 1.8rem;
+//     height: 1.8rem;
+//     padding: 2px;
+//     border-radius: 5px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     margin-left: 3px;
+// }
+
+// .editBtn{
+//     nb-icon{
+//         color: var(--primary);
+//     }
+//     &:hover{
+//         background-color: var(--primary);
+//         cursor: pointer;
+
+//         nb-icon{
+//             color: white;
+//         }
+//     }
+// }
+
+// .trashBtn{
+//     &:hover{
+//         background-color: var(--danger);
+//         cursor: pointer;
+
+//         nb-icon{
+//             color: white;
+//         }
+//     }
+// }
+
+
+
+
+.project-task-card {
+    width: 100%;
+    height: 13rem;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 2px solid var(--light-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+
+    &:hover {
+        cursor: pointer;
+        border: 2px solid var(--primary);
+    }
+}
+
+.project-task-card-content {
+    width: 90%;
+    height: 88%;
+}
+
+.task-preview {
+    display: flex;
+    flex-direction: column;
+    height: 82%;
+}
+
+.task-option {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.task-label-prio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+
+    .tag {
+        padding: 3px 5px;
+        border-radius: 5px;
+        background-color: var(--light-blue);
+        margin: 0 5px 0 0;
+        font-size: 0.7rem;
+    }
+}
+
+// priority tag colors
+.prio-high {
+    background-color: var(--high) !important;
+}
+
+.prio-med {
+    background-color: var(--medium) !important;
+}
+
+.prio-low {
+    background-color: var(--low) !important;
+}
+
+.task-title {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap;
+    /* let the text wrap preserving spaces */
+}
+
+.task-des {
+    margin-bottom: 3px;
+    font-size: 0.8rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap;
+    /* let the text wrap preserving spaces */
+}
+
+// Task info about asignee list avatars and number of comments and sub tasks
+.task-info {
+    border-top: 1px solid var(--light-gray-2);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 18%;
+    width: 100%;
+    padding: 3px;
+}
+
+.task-info-content {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+// Asignee avatar css
+
+
+
+.task-asignee-ava {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    border: 2.5px solid white;
+    margin-left: -0.7rem;
+}
+
+.task-comment-subTask {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.task-comment,
+.task-subTask {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 10px;
+
+    nb-icon {
+        font-size: 1rem;
+        color: var(--dark);
+        margin-right: 5px;
+    }
+}
+
+
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+        0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

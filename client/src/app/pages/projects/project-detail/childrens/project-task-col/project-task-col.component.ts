@@ -9,6 +9,12 @@ import { TaskModel } from 'src/app/models/task.model';
 })
 export class ProjectTaskColComponent implements OnInit {
 
+  tasks: TaskModel[] = [];
+  todoTasks: TaskModel[] = [];
+  doingTasks: TaskModel[] = [];
+  reviewTasks: TaskModel[] = [];
+  doneTasks: TaskModel[] = [];
+
   @Input() colTitle!: string;
   @Input() colListTask!: TaskModel[];
   @Input() colDragListTask!: TaskModel[];
@@ -26,11 +32,11 @@ export class ProjectTaskColComponent implements OnInit {
     // console.log(this.projectTask);
   }
 
-  updateTaskEvent(task: TaskModel){
+  updateTaskEvent(task: TaskModel) {
     this.updateTaskStatusEvent.emit(task);
   }
 
-  deleteTaskEvent(task: TaskModel){
+  deleteTaskEvent(task: TaskModel) {
     this.deleteTaskStatusEvent.emit(task);
   }
 
@@ -48,10 +54,10 @@ export class ProjectTaskColComponent implements OnInit {
   }
 
   getConnectedList(): string {
-    if(this.colTitle == "To do"){
+    if (this.colTitle == "To do") {
       return this.colConnectedDoneList[1];
     }
-    if(this.colTitle == "Done"){
+    if (this.colTitle == "Done") {
       return this.colConnectedDoneList[1];
     }
     return '';

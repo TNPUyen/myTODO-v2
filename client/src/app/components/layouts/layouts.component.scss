@@ -1,4 +1,4 @@
-.main-layout{
+.main-layout {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -6,52 +6,60 @@
     width: 100vw;
 }
 
-.main-layout-sidebar{
+.main-layout-sidebar {
     width: 5vw;
     height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
-.main-layout-container{
+.main-layout-container {
     width: 95vw;
+    margin-left: 5vw;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.main-layout-content{
-    width:  98%;
+.main-layout-content {
+    width: 98%;
     height: 95%;
 }
 
 // medium screen view css
 @media screen and (max-width: 1200px) {
-    .main-layout{
+    .main-layout {
         flex-direction: row;
     }
-    .main-layout-sidebar{
+
+    .main-layout-sidebar {
         width: 8%;
         height: 100vh;
     }
-    .main-layout-container{
+
+    .main-layout-container {
         width: 92%;
     }
 }
 
 // mobile view css
 @media screen and (max-width: 768px) {
-    .main-layout{
+    .main-layout {
         flex-direction: column;
     }
-    .main-layout-sidebar{
+
+    .main-layout-sidebar {
         width: 100vw;
         height: 10%;
     }
-    .main-layout-container{
+
+    .main-layout-container {
         width: 100vw;
         height: 90%;
     }
 
-    .main-layout-content{
+    .main-layout-content {
         width: 93%;
         height: 95%;
     }

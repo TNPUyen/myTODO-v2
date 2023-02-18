@@ -1,0 +1,66 @@
+<!-- <div  class="project-task-container" cdkDrag>
+    <div class="project-task-info">
+        <div class="project-task-info-content">
+            <h4>{{task.name}}</h4>
+            <p>{{task.description}}</p>
+        </div>
+    </div>
+    <div class="project-task-bottom">
+        <div class="project-task-bottom-content">
+            <div class="project-task-assigned" *ngFor="let asignee of task.asignee">
+                <div class="user-assigned-ava">
+                    <img [src]="asignee.photoURL" alt="">
+                </div>
+                <p>{{asignee.displayName}}</p>
+            </div>
+            <div class="project-task-options">
+                <div class="optionBtn editBtn" nbTooltip="Edit" (click)="openTaskEditDialog()">
+                    <nb-icon [options]="{ animation: { type: 'pulse' } }" icon="edit-outline"></nb-icon>
+                </div>
+                <div class="optionBtn trashBtn" nbTooltip="Delete" (click)="deleteTask()">
+                    <nb-icon [options]="{ animation: { type: 'pulse' } }" icon="trash-2-outline" status="danger"></nb-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="project-task-card" [nbTooltip]="'Design the UI for the new website'" cdkDrag>
+    <div class="project-task-card-content">
+        <div class="task-preview">
+            <div class="task-option">
+                <div class="task-label-prio">
+                    <p class="task-label tag">UI Design</p>
+                    <p class="prio-low tag">Medium</p>
+                </div>
+                <nb-icon icon="more-vertical-outline"></nb-icon>
+            </div>
+            <div class="task-preview-info">
+                <h6 class="task-title">Design the UI for the new website</h6>
+                <p class="task-des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae est veritatis
+                    nihil blanditiis quisquam soluta velit vitae labore aliquam, tenetur eaque ratione, fugit suscipit
+                    voluptates accusantium inventore? Esse, porro aperiam!</p>
+            </div>
+        </div>
+        <div class="task-info">
+            <div class="task-info-content">
+                <div class="task-asignee-list">
+                    <img class="task-asignee-ava" src="../../../../../../assets/images/user-ava.jpg" alt=""
+                        [nbTooltip]="'demo'">
+                    <img class="task-asignee-ava" src="../../../../../../assets/images/user-ava.jpg" alt=""
+                        [nbTooltip]="'demo'">
+                </div>
+                <div class="task-comment-subTask">
+                    <div class="task-comment">
+                        <nb-icon icon="message-circle-outline"></nb-icon>
+                        <p>0</p>
+                    </div>
+                    <div class="task-subTask">
+                        <nb-icon icon="checkmark-square-outline"></nb-icon>
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

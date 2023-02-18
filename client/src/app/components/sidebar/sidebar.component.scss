@@ -1,13 +1,14 @@
-.sidebar-container{
+.sidebar-container {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-right: 2px solid var(--light-gray);
+
 }
 
-.sidebar-content{
+.sidebar-content {
     width: 80%;
     height: 90%;
     display: flex;
@@ -15,20 +16,20 @@
     flex-direction: column;
 }
 
-.logo{
+.logo {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    img{
+
+    img {
         width: 90%;
         height: 90%;
     }
 }
 
 // sidebar menu css
-.side_menu{
+.side_menu {
     list-style: none;
     margin-top: 1rem;
     padding: 0;
@@ -38,7 +39,7 @@
     flex-direction: column;
 }
 
-.menu{
+.menu {
     width: 75%;
     margin: 10px 0;
     padding: 10px;
@@ -48,22 +49,23 @@
     align-items: center;
     position: relative;
 
-    .menu-icon{
+    .menu-icon {
         width: 1.5rem;
         height: 1.5rem;
-        color:  var(--primary);
+        color: var(--primary);
     }
 
-    &:hover{
+    &:hover {
         cursor: pointer;
         background-color: var(--primary);
-        .menu-icon{
+
+        .menu-icon {
             color: white;
         }
     }
 }
 
-.actived-menu{
+.actived-menu {
     width: 75%;
     margin: 10px 0;
     padding: 10px;
@@ -72,19 +74,20 @@
     justify-content: center;
     align-items: center;
     background-color: var(--primary);
-    .menu-icon{
+
+    .menu-icon {
         width: 1.5rem;
         height: 1.5rem;
         color: white !important;
     }
 }
 
-.separate-hor{
+.separate-hor {
     border-top: 2px solid var(--light-gray);
     margin: 0 20px;
 }
 
-.bottom-sidebar-content{
+.bottom-sidebar-content {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -92,7 +95,7 @@
     flex-direction: column;
 }
 
-.user-ava{
+.user-ava {
     width: 3rem;
     height: 3rem;
     display: flex;
@@ -100,7 +103,7 @@
     border-radius: 50%;
 
 
-    img{
+    img {
         width: 100%;
         height: 100%;
         border-radius: 50%;
@@ -109,12 +112,11 @@
         padding: 0;
     }
 
-    &:hover{
+    &:hover {
         cursor: pointer;
         border: 2px solid var(--primary);
-        img{
-            
-        }
+
+        img {}
     }
 }
 
@@ -122,7 +124,7 @@
 
 // sidebar mobile view css
 @media screen and (max-width: 768px) {
-    .sidebar-container{
+    .sidebar-container {
         width: 100%;
         height: 100%;
         display: flex;
@@ -131,8 +133,8 @@
         border-right: none;
         border-bottom: 2px solid var(--light-gray);
     }
-    
-    .sidebar-content{
+
+    .sidebar-content {
         width: 95%;
         height: 100%;
         display: flex;
@@ -140,27 +142,27 @@
         flex-direction: row;
     }
 
-    .top-sidebar-content{
+    .top-sidebar-content {
         display: flex;
         flex-direction: row;
 
     }
-    
-    .logo{
+
+    .logo {
         width: 5rem;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        
-        img{
+
+        img {
             width: 70%;
             height: 70%;
         }
     }
-    
+
     // sidebar menu css
-    .side_menu{
+    .side_menu {
         list-style: none;
         margin-left: 1rem;
         padding: 0;
@@ -169,8 +171,8 @@
         align-items: center;
         flex-direction: row;
     }
-    
-    .menu{
+
+    .menu {
         width: 75%;
         margin: 10px 0;
         padding: 10px;
@@ -178,23 +180,24 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    
-        .menu-icon{
+
+        .menu-icon {
             width: 1.5rem;
             height: 1.5rem;
-            color:  var(--primary);
+            color: var(--primary);
         }
-    
-        &:hover{
+
+        &:hover {
             cursor: pointer;
             background-color: var(--primary);
-            .menu-icon{
+
+            .menu-icon {
                 color: white;
             }
         }
     }
-    
-    .actived-menu{
+
+    .actived-menu {
         width: 75%;
         margin: 10px 0;
         padding: 10px;
@@ -203,14 +206,15 @@
         justify-content: center;
         align-items: center;
         background-color: var(--primary);
-        .menu-icon{
+
+        .menu-icon {
             width: 1.5rem;
             height: 1.5rem;
             color: white !important;
         }
     }
 
-    .bottom-sidebar-content{
+    .bottom-sidebar-content {
         width: 20%;
         display: flex;
         justify-content: center;
@@ -218,16 +222,14 @@
         flex-direction: row;
     }
 
-    .logout-btn{
+    .logout-btn {
         width: 45%;
     }
 
-    .separate-hor{
+    .separate-hor {
         border-left: 2px solid var(--light-gray);
         margin: auto 20px;
         height: 50%;
     }
-    
-}
-    
 
+}

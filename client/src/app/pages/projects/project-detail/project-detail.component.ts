@@ -31,9 +31,9 @@ export class ProjectDetailComponent implements OnInit {
     "doneList",
   ];
 
-  tabOptions=[
+  tabOptions = [
     {
-      title: 'All task',
+      title: 'By status',
       icon: 'archive-outline',
       link: 'all',
     },
@@ -51,26 +51,30 @@ export class ProjectDetailComponent implements OnInit {
   // user!: User;
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private router: Router,
     private projectService: ProjectService,
     private toastrService: NbToastrService,
-    private dialogService: NbDialogService, 
+    private dialogService: NbDialogService,
     public taskService: TaskService,
     public userService: UserService,
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     // this.user = JSON.parse(localStorage.getItem('user') || '{}');
-    
-    this.projectService.getProject(this.route.snapshot.paramMap.get('id')).subscribe((projectInfo) =>{
+    this.tabOptions.find(tab => {
+      if (tab.link === this.router.url || this.router.url.includes(tab.link)) {
+        this.selectedTab = this.tabOptions.indexOf(tab);
+      }
+    })
+    this.projectService.getProject(this.route.snapshot.paramMap.get('id')).subscribe((projectInfo) => {
       this.userService.getUserById(projectInfo.owner).subscribe((res) => {
         projectInfo.members.push(res)
       })
       this.projectService.projectInfo = projectInfo
       this.projectInfo = projectInfo
-      this.taskService.getTasksByProjectId(projectInfo.project_id).subscribe((res) =>{
-        if(res){
+      this.taskService.getTasksByProjectId(projectInfo.project_id).subscribe((res) => {
+        if (res) {
           this.tasks = res.reverse();
           this.filterTasks();
         }
@@ -78,7 +82,7 @@ export class ProjectDetailComponent implements OnInit {
     })
   }
 
-  selectTab(index: number){
+  selectTab(index: number) {
     this.selectedTab = index;
     this.router.navigate([`/projects/${this.projectInfo.project_id}/${this.tabOptions[index].link}`])
   }
@@ -87,56 +91,56 @@ export class ProjectDetailComponent implements OnInit {
     window.history.back();
   }
 
-  filterTasks(){
+  filterTasks() {
     this.todoTasks = this.tasks.filter((task) => task.status === 0);
     this.doingTasks = this.tasks.filter((task) => task.status === 1);
     this.doneTasks = this.tasks.filter((task) => task.status === 2);
   }
 
-  openAddTaskDialog(){
+  openAddTaskDialog() {
     this.dialogService.open(NewTaskDialogComponent, {
       context: {
         project: this.projectInfo,
       },
     }).onClose.subscribe((task: TaskModel) => {
-      if(task){
+      if (task) {
         this.todoTasks.unshift(task);
       }
       this.taskService.getTasksByProjectId(this.projectInfo.project_id).subscribe((res) => {
-        if(res){
+        if (res) {
           this.tasks = res;
           this.filterTasks();
         }
       });
     });
-  } 
+  }
 
-  openShareDialog(){
+  openShareDialog() {
     this.dialogService.open(ShareProjectDialogComponent, {
       context: {
         project: this.projectInfo,
       },
     });
-  } 
+  }
 
-  openProjectInfoDialog(){
+  openProjectInfoDialog() {
     this.dialogService.open(ProjectInfoDialogComponent, {
       context: {
         project: this.projectInfo,
       },
     });
-  } 
+  }
 
-  updateTaskStatusEvent(task: TaskModel){
-    this.taskService.getTasksByProjectId(this.projectInfo.project_id).subscribe((res) =>{
-      if(res){
+  updateTaskStatusEvent(task: TaskModel) {
+    this.taskService.getTasksByProjectId(this.projectInfo.project_id).subscribe((res) => {
+      if (res) {
         this.tasks = res;
         this.filterTasks();
       }
     });
   }
 
-  deleteTaskStatusEvent(task: TaskModel){
+  deleteTaskStatusEvent(task: TaskModel) {
     // this.taskService.getTasksByProjectId(this.projectInfo.project_id).subscribe((res) =>{
     //   if(res){
     //     this.tasks = res;
@@ -148,8 +152,8 @@ export class ProjectDetailComponent implements OnInit {
     console.log(this.tasks)
   }
 
-  deleteProject(){
-    if(this.userService.user.uid === this.projectInfo.owner){
+  deleteProject() {
+    if (this.userService.user.uid === this.projectInfo.owner) {
       // this.taskService.deleteTasksByProjectId(this.projectInfo.project_id).subscribe(
       //   () => {}
       // );
@@ -166,14 +170,14 @@ export class ProjectDetailComponent implements OnInit {
       )
       window.history.back();
       return;
-     }
-      this.toastrService.show('Error', 'You are not the owner of this project', {
-        status: 'danger',
-      });
-      return;
-     
+    }
+    this.toastrService.show('Error', 'You are not the owner of this project', {
+      status: 'danger',
+    });
+    return;
+
   }
-  
+
 
   drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {
@@ -187,7 +191,7 @@ export class ProjectDetailComponent implements OnInit {
       );
     }
 
-    if(event.container.id != event.previousContainer.id){
+    if (event.container.id != event.previousContainer.id) {
       if (event.container.id == 'cdk-drop-list-0') {
         this.updateTaskFunc(event.container.data[event.currentIndex], 0);
       } else if (event.container.id == 'cdk-drop-list-1') {
@@ -198,20 +202,20 @@ export class ProjectDetailComponent implements OnInit {
     }
   }
 
-  updateTaskFunc(task: any, status: any){
+  updateTaskFunc(task: any, status: any) {
     const data = {
       ...task,
       status: status,
       updatedDate: Date.now(),
     };
     this.tasks.findIndex((task) => {
-      if(task.task_id === data.task_id){
+      if (task.task_id === data.task_id) {
         task.status = data.status;
       }
     });
     this.filterTasks();
     this.taskService.updateTaskById(data.task_id, data).subscribe((res) => {
-      if(res == 'Updated successfully'){
+      if (res == 'Updated successfully') {
         this.toastrService.success('Task updated successfully', 'Success');
       }
     });
