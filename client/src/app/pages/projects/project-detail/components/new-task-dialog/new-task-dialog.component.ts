@@ -3,6 +3,7 @@ import { NbDialogRef, NbTagComponent, NbTagInputDirective, NbToastrService } fro
 import { ProjectModel } from 'src/app/models/project.model';
 import { TaskModel } from 'src/app/models/task.model';
 import { UserModel } from 'src/app/models/user.model';
+import { ProjectPropService } from 'src/app/services/project-prop.service';
 import { TaskService } from 'src/app/services/task/task.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -20,19 +21,7 @@ export class NewTaskDialogComponent implements OnInit {
   taskName: string = '';
   taskDescription: string = '';
   tags: Set<string> = new Set<string>();
-  optionLabels = [
-    { value: '0', label: 'UI Design' },
-    { value: '1', label: 'UX Design' },
-    { value: '2', label: 'Marketing' },
-    { value: '3', label: 'Back-end' },
-    { value: '4', label: 'Front-end' },
-  ];
 
-  optionPriorities = [
-    { value: '0', label: 'Low' },
-    { value: '1', label: 'Medium' },
-    { value: '2', label: 'High' },
-  ]
 
   @ViewChild(NbTagInputDirective, { read: ElementRef })
   tagInput!: ElementRef<HTMLInputElement>;
@@ -41,15 +30,16 @@ export class NewTaskDialogComponent implements OnInit {
     public ref: NbDialogRef<NewTaskDialogComponent>,
     private toastrService: NbToastrService,
     private taskService: TaskService,
-  ) { 
-    
+    public projectPropService: ProjectPropService,
+  ) {
+
   }
 
   ngOnInit(): void {
   }
 
-  createTask(){
-    if(this.taskName == '' || this.taskDescription == '' || this.selectedAssignee == null){
+  createTask() {
+    if (this.taskName == '' || this.taskDescription == '' || this.selectedAssignee == null) {
       this.toastrService.danger('Please fill in all the fields!', 'Error');
       return;
     }
@@ -65,7 +55,7 @@ export class NewTaskDialogComponent implements OnInit {
       updated_at: Date.now()
     }
     this.taskService.createTask(newTask).subscribe((res) => {
-      if(res == "Created successfully"){
+      if (res == "Created successfully") {
         this.toastrService.success('Task created successfully!', 'Success');
         this.ref.close(newTask);
       }

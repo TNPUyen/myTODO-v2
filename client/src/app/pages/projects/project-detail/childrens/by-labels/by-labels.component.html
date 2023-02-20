@@ -7,10 +7,12 @@
             </div>
             <div class="label-filter-list">
                 <h6>Label filter:</h6>
-                <div (click)="selectedOptionChange(i)"
-                    [ngClass]="[selectedOption != i ? 'label-filter-item': 'label-filter-item active']"
-                    *ngFor="let label of optionLabels; let i = index">
-                    <p>{{label.label}}</p>
+                <div class="label-filter-container">
+                    <div (click)="selectedOptionChange(i)"
+                        [ngClass]="[selectedOption != i ? 'label-filter-item': 'label-filter-item active']"
+                        *ngFor="let label of projectPropService.labelsTask; let i = index">
+                        <p>{{label.label}}</p>
+                    </div>
                 </div>
             </div>
         </div>

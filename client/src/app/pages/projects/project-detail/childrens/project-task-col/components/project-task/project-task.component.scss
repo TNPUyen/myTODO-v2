@@ -152,7 +152,7 @@
 
 .project-task-card {
     width: 100%;
-    height: 13rem;
+    height: 14rem;
     border-radius: 10px;
     margin: 10px 0;
     border: 2px solid var(--light-gray);
@@ -238,6 +238,20 @@
     /* start showing ellipsis when 3rd line is reached */
     white-space: pre-wrap;
     /* let the text wrap preserving spaces */
+}
+
+.task-deadline {
+    display: flex;
+    flex-direction: row;
+
+    nb-icon {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
 }
 
 // Task info about asignee list avatars and number of comments and sub tasks

@@ -5,10 +5,10 @@
     <nb-card-body>
         <p class="label-input">Task title*</p>
         <input class="task-info-ipt" type="text" [(ngModel)]="taskName" placeholder="Enter task title...">
-        
+
         <p class="label-input">Description*</p>
         <input class="task-info-ipt" type="text" [(ngModel)]="taskDescription" placeholder="This task is about...">
-        
+
         <!-- <div class="select-assignee">
             <p class="label-input">Assign to</p>
             <nb-select placeholder="Choose Assignee" [(selected)]="selectedAssignee">
@@ -31,31 +31,31 @@
                     <img [src]="mem.photoURL" alt="">
                     <h6>{{mem.displayName}}</h6>
                 </nb-option>
-            </nb-autocomplete>   
+            </nb-autocomplete>
         </div>
         <div class="label-prio-container">
             <div class="task-label">
                 <p class="label-input">Label</p>
                 <nb-select placeholder="Choose label" [(selected)]="selectedLabel">
-                    <nb-option *ngFor="let label of optionLabels" [value]="label">
+                    <nb-option *ngFor="let label of projectPropService.labelsTask" [value]="label">
                         <div class="option-assignee">
                             <p>{{label.label}}</p>
                         </div>
                     </nb-option>
-                </nb-select>    
+                </nb-select>
             </div>
             <div class="task-prio">
                 <p class="label-input">Priority</p>
                 <nb-select placeholder="Choose Priority" [(selected)]="selectedPriority">
-                    <nb-option *ngFor="let prio of optionPriorities" [value]="prio">
+                    <nb-option *ngFor="let prio of projectPropService.taskPriorities" [value]="prio">
                         <div class="option-assignee">
                             <p>{{prio.label}}</p>
                         </div>
                     </nb-option>
-                </nb-select>    
+                </nb-select>
             </div>
         </div>
-        
+
     </nb-card-body>
     <nb-card-footer>
         <button class="btn-dialog cancelBtn" (click)="ref.close()">Cancel</button>
