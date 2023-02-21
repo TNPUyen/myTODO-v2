@@ -246,11 +246,15 @@
 
     nb-icon {
         font-size: 1rem;
+        color: var(--gray-text);
+        margin-right: 5px;
     }
 
     p {
         font-size: 0.8rem;
-        font-weight: 500;
+        font-weight: 700;
+        color: var(--gray-text);
+        margin-right: 5px;
     }
 }
 
