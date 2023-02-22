@@ -239,6 +239,7 @@ h2 {
     font-weight: 600;
     margin-bottom: 1rem;
     color: var(--gray-text);
+    margin: 0;
 }
 
 .home-container {
@@ -251,6 +252,10 @@ h2 {
 
 .project-detail-info {
     width: 97%;
-    height: 6%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
 }

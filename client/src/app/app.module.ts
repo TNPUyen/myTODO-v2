@@ -20,6 +20,7 @@ import { NotiDialogComponent } from './components/noti-dialog/noti-dialog.compon
 import { InvitationDialogComponent } from './components/invitation-dialog/invitation-dialog.component';
 import { InvitationItemComponent } from './components/invitation-dialog/invitation-item/invitation-item.component';
 import { NotiItemComponent } from './components/noti-dialog/noti-item/noti-item.component';
+import { CalendarComponent } from './utils/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NotiItemComponent } from './components/noti-dialog/noti-item/noti-item.
     InvitationDialogComponent,
     InvitationItemComponent,
     NotiItemComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
