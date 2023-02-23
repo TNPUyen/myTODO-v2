@@ -56,7 +56,36 @@
     </div>
 </div> -->
 <div class="home-container">
-    <div class="project-detail-info">
-        <h2>Hello, <span>{{userShortName}}</span>!</h2>
+    <div class="home-content">
+        <div class="left-container">
+            <div class="home-detail-info">
+                <h2>Hello, <span>{{userShortName}}</span>!</h2>
+            </div>
+            <div class="home-main-content">
+                <div class="home-top-option">
+                    <div class="calendar-container">
+                        <app-calendar></app-calendar>
+                    </div>
+                    <div class="filter-todo-container">
+                        <p>Filter</p>
+                        <div class="filter-todo-list">
+                            <div>
+                                <p>All</p>
+                            </div>
+                            <div>
+                                <p>To do</p>
+                            </div>
+                            <div>
+                                <p>Done</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-task-render">
+
+                </div>
+            </div>
+        </div>
+        <div class="right-container"></div>
     </div>
 </div>

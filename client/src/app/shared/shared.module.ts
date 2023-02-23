@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from '../components/sidebar/sidebar.component';
+import { CalendarComponent } from '../utils/calendar/calendar.component';
 
 import { NbAutocompleteModule, NbBadgeModule, NbCalendarModule, NbCardModule, NbCheckboxModule, NbContextMenuModule, NbDatepickerModule, NbIconModule, NbSelectModule, NbTagModule, NbTooltipModule } from '@nebular/theme';
 import { DropdownMenuComponent } from '../components/dropdown-menu/dropdown-menu.component';
 import { FormsModule } from '@angular/forms';
 
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
   declarations: [
     DropdownMenuComponent,
-    SidebarComponent, 
+    SidebarComponent,
+    CalendarComponent,
   ],
   imports: [
     CommonModule,
@@ -29,8 +31,10 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     NbTagModule,
     NbBadgeModule,
   ],
-  exports:[
+  exports: [
     DropdownMenuComponent,
+    CalendarComponent,
+
     SidebarComponent,
     NbCalendarModule,
     NbCheckboxModule,

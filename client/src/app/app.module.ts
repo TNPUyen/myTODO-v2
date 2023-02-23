@@ -8,11 +8,11 @@ import { NbThemeModule, NbLayoutModule, NbMenuModule, NbToastrModule, NbDialogMo
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { SharedModule } from './shared/shared.module';
 import { LayoutsComponent } from './components/layouts/layouts.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -20,7 +20,6 @@ import { NotiDialogComponent } from './components/noti-dialog/noti-dialog.compon
 import { InvitationDialogComponent } from './components/invitation-dialog/invitation-dialog.component';
 import { InvitationItemComponent } from './components/invitation-dialog/invitation-item/invitation-item.component';
 import { NotiItemComponent } from './components/noti-dialog/noti-item/noti-item.component';
-import { CalendarComponent } from './utils/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,6 @@ import { CalendarComponent } from './utils/calendar/calendar.component';
     InvitationDialogComponent,
     InvitationItemComponent,
     NotiItemComponent,
-    CalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,8 +38,8 @@ import { CalendarComponent } from './utils/calendar/calendar.component';
     HttpClientModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
-    NbEvaIconsModule,    
-    NbMenuModule.forRoot(),    
+    NbEvaIconsModule,
+    NbMenuModule.forRoot(),
     NbToastrModule.forRoot(),
     NbDialogModule.forChild(),
     NbDatepickerModule.forRoot(),

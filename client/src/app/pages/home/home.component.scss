@@ -245,17 +245,90 @@ h2 {
 .home-container {
     display: flex;
     flex-direction: row;
-    // align-items: center;
+    align-items: center;
+    justify-content: center;
     height: 100%;
     width: 100%;
 }
 
-.project-detail-info {
-    width: 97%;
+.home-content {
+    width: 98%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// CSS for the LEFT content of the home page
+
+.left-container {
+    width: 63%;
+    height: 100%;
+}
+
+.home-detail-info {
+    width: 100%;
     height: 10%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
 
+.home-main-content {
+    width: 100%;
+    height: 90%;
+}
+
+.home-top-option {
+    width: 100%;
+    height: 6.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.calendar-container {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: paleturquoise;
+}
+
+.filter-todo-container {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: palevioletred;
+}
+
+// CSS for the RIGHT content of the home page
+.right-container {
+    width: 35%;
+    height: 100%;
+    background-color: palevioletred;
+}
+
+// CSS for the responsive design of the home page
+@media screen and (max-width: 768px) {
+    .home-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .left-container {
+        width: 100%;
+    }
+
+    .right-container {
+        width: 100%;
+    }
 }
