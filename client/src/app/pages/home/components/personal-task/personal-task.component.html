@@ -1,9 +1,30 @@
-<div class="personal-task" *ngIf="todo != null">
+<!-- <div class="personal-task" *ngIf="todo != null">
     <div class="personal-task-content">
         <div class="personal-task-left-content">
             <nb-checkbox (checkedChange)="toggleDone($event, todo.todo_id)" [checked]="todo.status"></nb-checkbox>
             <h5 *ngIf="!isEdit" [ngStyle]="{'text-decoration-line': isDone || todo.status ? 'line-through': 'none'}">{{todo.content}}</h5>
             <input *ngIf="isEdit" type="text" [(ngModel)]="todo.content">
+        </div>
+        <div class="personal-task-options">
+            <div *ngIf="!isEdit" class="option edit" nbTooltip="Edit" (click)="isEdit = true">
+                <nb-icon [options]="{ animation: { type: 'pulse' } }" icon="edit-outline" ></nb-icon>
+            </div>
+            <div *ngIf="isEdit" class="option onEdit" (click)="saveEdit(todo.todo_id)" nbTooltip="Save">
+                <nb-icon [options]="{ animation: { type: 'pulse' } }" icon="save-outline"></nb-icon>
+            </div>
+            <div class="option trash" nbTooltip="Delete" (click)="deleteTodoById(todo.todo_id)">
+                <nb-icon [options]="{ animation: { type: 'pulse' } }" icon="trash-2-outline" status="danger"></nb-icon>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="personal-task">
+    <div class="personal-task-content">
+        <div class="personal-task-left-content">
+            <nb-checkbox></nb-checkbox>
+            <h5 >this is a demo</h5>
+            <!-- <input *ngIf="isEdit" type="text" [(ngModel)]="todo.content"> -->
         </div>
         <div class="personal-task-options">
             <div *ngIf="!isEdit" class="option edit" nbTooltip="Edit" (click)="isEdit = true">

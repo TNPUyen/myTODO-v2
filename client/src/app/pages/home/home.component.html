@@ -63,26 +63,26 @@
             </div>
             <div class="home-main-content">
                 <div class="home-top-option">
-                    <div class="calendar-container">
-                        <app-calendar></app-calendar>
-                    </div>
+                    <!-- <div class="calendar-container"> -->
+                        <app-calendar class="calendar-base"></app-calendar>
+                    <!-- </div> -->
                     <div class="filter-todo-container">
-                        <p>Filter</p>
+                        <p class="filter-todo-label">Filter</p>
                         <div class="filter-todo-list">
-                            <div>
+                            <div class="label-filter-item filter-active">
                                 <p>All</p>
                             </div>
-                            <div>
+                            <div class="label-filter-item">
                                 <p>To do</p>
                             </div>
-                            <div>
+                            <div class="label-filter-item">
                                 <p>Done</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="list-task-render">
-
+                    <app-personal-task></app-personal-task>
                 </div>
             </div>
         </div>

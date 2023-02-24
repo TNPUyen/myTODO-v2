@@ -12,6 +12,7 @@ import { ProjectInfoDialogComponent } from './components/project-info-dialog/pro
 import { TaskEditComponent } from './components/task-edit/task-edit.component';
 import { ByLabelsComponent } from './childrens/by-labels/by-labels.component';
 import { ByDateComponent } from './childrens/by-date/by-date.component';
+import { ByLabelTaskComponent } from './childrens/by-labels/components/by-label-task/by-label-task.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ByDateComponent } from './childrens/by-date/by-date.component';
     ProjectInfoDialogComponent,
     TaskEditComponent,
     ByLabelsComponent,
-    ByDateComponent
+    ByDateComponent,
+    ByLabelTaskComponent
   ],
   imports: [
     CommonModule,
