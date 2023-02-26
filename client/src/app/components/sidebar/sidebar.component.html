@@ -21,7 +21,6 @@
     </div>
     <div class="bottom-sidebar-content">
       <div class="user-ava" [nbTooltip]="user.displayName ?? ''" nbTooltipPlacement="right">
-        <!-- <img src="../../../assets/images/user-ava.jpg" alt=""> -->
         <img [src]="user.photoURL" alt="">
       </div>
       <div class="logout-btn menu" (click)="logout()" nbTooltip="Log out" nbTooltipPlacement="right">

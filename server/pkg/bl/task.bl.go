@@ -60,6 +60,34 @@ func (bl TaskBusinessLogic) GetTaskByProject(projectID string) ([]*models.Task, 
 	return Tasks, nil
 }
 
+// get task by 1 assignee in assignee array
+func (bl TaskBusinessLogic) GetTaskByAssigneeInArray(assigneeID string) ([]*models.Task, error) {
+	var Tasks []*models.Task
+	res, err := bl.server.Db.Collection("tasks").Find(context.Background(), bson.D{primitive.E{Key: "asignee", Value: bson.D{primitive.E{Key: "$in", Value: []string{assigneeID}}}}})
+	if err != nil {
+		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+	err = res.All(context.Background(), &Tasks)
+	if err != nil {
+		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+	return Tasks, nil
+}
+
+// search task has word in name
+func (bl TaskBusinessLogic) SearchTaskByName(name string) ([]*models.Task, error) {
+	var Tasks []*models.Task
+	res, err := bl.server.Db.Collection("tasks").Find(context.Background(), bson.D{primitive.E{Key: "name", Value: bson.D{primitive.E{Key: "$regex", Value: name}}}})
+	if err != nil {
+		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+	err = res.All(context.Background(), &Tasks)
+	if err != nil {
+		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+	return Tasks, nil
+}
+
 func (bl TaskBusinessLogic) CreateTask(Task *models.Task) error {
 	if Task.Name == "" || Task.Description == "" {
 		return echo.NewHTTPError(http.StatusBadRequest, "Title and Description is required")

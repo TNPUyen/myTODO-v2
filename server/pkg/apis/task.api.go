@@ -29,6 +29,21 @@ func NewTaskApis(server *core.Server) *echo.Group {
 		result, _ := business.GetTask(taskId)
 		return c.JSON(http.StatusOK, result)
 	})
+
+	// api get task by 1 assignee in assignee array
+	api.GET("/byAssignee/:id", func(c echo.Context) error {
+		assigneeId := c.Param("id")
+		result, _ := business.GetTaskByAssigneeInArray(assigneeId)
+		return c.JSON(http.StatusOK, result)
+	})
+
+	// api search task by name
+	api.GET("/search/:name", func(c echo.Context) error {
+		taskName := c.Param("name")
+		result, _ := business.SearchTaskByName(taskName)
+		return c.JSON(http.StatusOK, result)
+	})
+
 	api.POST("", func(c echo.Context) error {
 		task := models.Task{}
 		err := c.Bind(&task)

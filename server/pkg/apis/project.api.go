@@ -9,11 +9,6 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-type ProjectAPI struct {
-	server *core.Server
-	bl     *bl.TodoBusinessLogic
-}
-
 func NewProjectApis(server *core.Server) *echo.Group {
 	api := server.Echo.Group("/api/v1/projects")
 	business := bl.NewProjectBusinessLogic(server)

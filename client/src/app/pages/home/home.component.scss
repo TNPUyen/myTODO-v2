@@ -254,8 +254,8 @@ h3 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 100%;
     width: 100%;
+    overflow-x: hidden ;
 }
 
 .home-content {
@@ -263,7 +263,7 @@ h3 {
     height: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
 }
 
@@ -277,6 +277,7 @@ h3 {
 .home-detail-info {
     width: 100%;
     height: 10%;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -386,15 +387,57 @@ h3 {
 
 }
 
-.list-task-render {
-    padding: 1rem 0;
-}
+// .list-task-render {
+//     padding: 1rem 0;
+// }
 
 // CSS for the RIGHT content of the home page
 .right-container {
     width: 33%;
     height: 100%;
-    background-color: palevioletred;
+}
+
+.right-top-content{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.task-num{
+    width: 14rem;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+    h5{
+        font-size: 3rem;
+        font-weight: 700;
+        color: white;
+        margin: 0 0 15px 0;
+    }
+
+    p{
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        margin: 0;
+    }
+}
+
+.personal{
+    background-color: var(--secondary);
+}
+
+.official{
+    background-color: var(--navy-blue);
 }
 
 // CSS for the responsive design of the home page

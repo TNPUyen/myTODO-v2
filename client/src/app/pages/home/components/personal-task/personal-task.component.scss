@@ -138,35 +138,57 @@
 
 .personal-todo-container {
     width: 100%;
+    margin-bottom: 20px;
 
 }
 
 .personal-todo-base {
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
     // background-color: paleturquoise;
 }
 
 .personal-todo-content {
-    width: 75%;
-    padding: 1.5rem 1.8rem 1.5rem 2.5rem;
-    border-radius: 0 10px 10px 0;
-    border-left: 0.5rem solid var(--primary);
-    border-bottom: 2px solid var(--light-gray-2);
-    border-top: 2px solid var(--light-gray-2);
-    border-right: 2px solid var(--light-gray-2);
+    width: 100%;
+    background-color: powderblue;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    // border-radius: 0 10px 10px 0;
+    // border-left: 0.5rem solid var(--primary);
+    // border-bottom: 2px solid var(--light-gray-2);
+    // border-top: 2px solid var(--light-gray-2);
+    // border-right: 2px solid var(--light-gray-2);
 
-    h4 {
-        font-size: 1.3rem;
+    h6 {
+        font-size: 1.2rem;
         color: var(--dark);
         margin-bottom: 5px;
     }
 
     p {
-        font-size: 1rem;
+        font-size: 0.8rem;
         color: var(--dark);
         overflow: hidden;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
     }
+}
+
+.personal-todo-status{
+    margin-left: 10px;
+    nb-icon{
+        font-size: 2.3rem;
+        margin: 0 5px;
+    }
+}
+
+.personal-todo-done{
+    color: var(--green);
+}
+
+.personal-todo-cancel{
+    color: var(--red);
 }

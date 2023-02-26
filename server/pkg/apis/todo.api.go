@@ -6,6 +6,7 @@ import (
 	"myTODO-server/pkg/core"
 	"myTODO-server/pkg/models"
 	"net/http"
+	"strconv"
 
 	"github.com/mitchellh/mapstructure"
 
@@ -35,6 +36,21 @@ func NewTodoApis(server *core.Server) *echo.Group {
 		}
 		return c.JSON(http.StatusOK, result)
 	})
+
+	// api get todo by user and date
+	api.GET("/byUser", func(c echo.Context) error {
+		// userID := c.Param("uid")
+		// date := c.Param("date")
+		userID := c.QueryParam("uid")
+		// query param to int
+		date, _ := strconv.Atoi(c.QueryParam("date"))
+		result, err := business.GetTodoByOwnerAndDate(userID, date)
+		if err != nil {
+			return err
+		}
+		return c.JSON(http.StatusOK, result)
+	})
+
 	api.POST("/", func(c echo.Context) error {
 		// get user from body request by echo
 		json_map := make(map[string]interface{})

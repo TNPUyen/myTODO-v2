@@ -66,6 +66,24 @@ func (bl TodoBusinessLogic) GetTodoByOwner(ownerID string) ([]*models.Todo, erro
 	return todos, nil
 }
 
+// get to do by owner and date
+func (bl TodoBusinessLogic) GetTodoByOwnerAndDate(ownerID string, date int) ([]*models.Todo, error) {
+	// id, err := primitive.ObjectIDFromHex(ownerID)
+	// if err != nil {
+	// 	return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	// }
+	var todos []*models.Todo
+	res, err := bl.server.Db.Collection("todos").Find(context.Background(), bson.D{primitive.E{Key: "owner_id", Value: ownerID}, primitive.E{Key: "todo_date", Value: date}})
+	if err != nil {
+		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+	err = res.All(context.Background(), &todos)
+	if err != nil {
+		return nil, echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+	return todos, nil
+}
+
 func (bl TodoBusinessLogic) CreateTodo(todo *models.Todo, ownerID string) error {
 	if todo.Content == "" {
 		return echo.NewHTTPError(http.StatusBadRequest, "Title is required")
