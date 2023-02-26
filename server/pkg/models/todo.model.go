@@ -15,5 +15,6 @@ type Todo struct {
 	OwnerID    string             `json:"owner_id" bson:"owner_id"`     // bson:"owner_id,omitempty" is used to ignore the field when inserting a new document
 	Created_at int                `json:"created_at" bson:"created_at"` // bson:"created_at,omitempty" is used to ignore the field when inserting a new document
 	Updated_at int                `json:"updated_at" bson:"updated_at"` // bson:"updated_at,omitempty" is used to ignore the field when inserting a new document
-	Todo_date  int                `json:"todo_date" bson:"todo_date"`   // bson:"todo_date,omitempty" is used to ignore the field when inserting a new document
+	Disabled   bool               `json:"disabled" bson:"disabled"`
+	Todo_date  int                `json:"todo_date" bson:"todo_date"` // bson:"todo_date,omitempty" is used to ignore the field when inserting a new document
 }

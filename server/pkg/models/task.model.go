@@ -9,6 +9,7 @@ type Task struct {
 	Project_id  string             `json:"project_id" bson:"project_id"`
 	Name        string             `json:"name" bson:"name"`
 	Description string             `json:"description" bson:"description"`
+	Assignor    User               `json:"assignor" bson:"assignor"` // bson:"assignor,omitempty" is used to ignore the field when inserting a new document
 	Task_id     string             `json:"task_id" bson:"task_id"`
 	// Status: 0 - Not started, 1 - In progress, 2 -Completed
 	Status     int    `json:"status" bson:"status"`
@@ -18,5 +19,5 @@ type Task struct {
 	Disabled   bool   `json:"disabled" bson:"disabled"`
 	Created_at int    `json:"created_at" bson:"created_at"` // bson:"created_at,omitempty" is used to ignore the field when inserting a new document
 	Updated_at int    `json:"updated_at" bson:"updated_at"` // bson:"updated_at,omitempty" is used to ignore the field when inserting a new document
-	// Deadline 	int 				`json:"deadline" bson:"deadline"`
+	Deadline   int    `json:"deadline" bson:"deadline"`
 }

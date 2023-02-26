@@ -1,1 +1,53 @@
-<p>sidebar works!</p>
+<div class="sidebar-container">
+    <div class="sidebar-main-view">
+        <div class="logo"></div>
+        <div class="sidebar-main-content">
+            <div class="sidebar-menu">
+                <h6>AREAS</h6>
+                <ul>
+                    <li (click)="selectMenu(i)" [class]="selectedMenu == i ? 'menu-active' : 'sidemenu'" *ngFor="let menu of sidemenu; let i = index">
+                        <nb-icon [icon]="menu.icon"></nb-icon>
+                        <p>{{menu.title}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-option">
+                <h6>OTHERS</h6>
+                <ul>
+                    <li>
+                        <div class="sidebar-menu-option">
+                            <nb-icon icon="bell-outline"></nb-icon>
+                            <p>Notifications</p>
+                        </div>
+                        <div class="new-count-active">
+                            <p>5</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sidebar-menu-option">
+                            <nb-icon icon="person-add-outline"></nb-icon>
+                            <p>Invitations</p>
+                        </div>
+                        <div class="new-count-active">
+                            <p>10</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <hr />
+            <div class="sidebar-logout">
+                <nb-icon icon="log-out-outline"></nb-icon>
+                <p>Sign out</p>
+            </div>
+        </div>
+        
+        <div class="sidebar-user-preview">
+            <img src="../../../assets/images/user.jpg" alt="" class="sidebar-user-ava">
+            <div class="sidebar-user-info">
+                <p class="sidebar-user-name">Demo</p>
+                <p class="sidebar-user-role">admin@gmail.com</p>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,36 @@
+nb-layout-column{
+    padding: 0 !important;
+    background-color: white !important;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    height: 100vh;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.main-view{
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    width: 85vw;
+    height: 100vh;
+    background-color: #f5f5f5;
+    margin-left: 15vw;
+    overflow-y: auto;
+}

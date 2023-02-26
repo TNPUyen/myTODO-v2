@@ -1,1 +1,41 @@
-<p>project works!</p>
+<div class="project-container">
+    <h4>Projects</h4>
+    <div class="project-main-option">
+        <div class="search">
+            <input type="text" placeholder="Enter project name...">
+            <button><nb-icon icon="search-outline"></nb-icon></button>
+        </div>
+        <div>
+            <nb-select placeholder="Select Showcase" (selectedChange)="filterProjects($event)" [(selected)]="isSharedProjects">
+                <nb-option value="0">My projects</nb-option>
+                <nb-option value="1">Shared with me</nb-option>
+            </nb-select>
+            <button class="createProject-btn">Create project</button>
+        </div>
+    </div>
+    <div class="project-main-view">
+        <div class="project-table-header">
+            <div class="project-table-head-label project-pin">
+                <nb-icon icon="star-outline"></nb-icon>
+            </div>
+            <div class="project-table-head-label project-name">
+                <p>Project name</p>
+                <nb-icon icon="chevron-down-outline"></nb-icon>
+            </div>
+            <div class="project-table-head-label project-type">
+                <p>Type</p>
+                <nb-icon icon="chevron-down-outline"></nb-icon>
+            </div>
+            <div class="project-table-head-label project-leader">
+                <p>Leader</p>
+                <nb-icon icon="chevron-down-outline"></nb-icon>
+            </div>
+            <div class="project-table-head-label project-action"></div>
+        </div>
+        <div style="width: 100%;">
+            <app-project-card></app-project-card>
+            <app-project-card></app-project-card>
+            <app-project-card></app-project-card>
+        </div>
+    </div>
+</div>

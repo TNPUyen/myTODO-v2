@@ -1,1 +1,38 @@
+@use 'themes' as *;
+
+@use '@nebular/theme/styles/globals' as *;
+
+@include nb-install() {
+  @include nb-theme-global();
+};
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap');
+
+:root{
+    // --primary: #7776BC;
+    --primary: #7B69EE;
+    --primary-hover: #6B59DE;
+
+    --danger: #ED553B;
+
+    --gray: #FAFBFB;
+    --dark-gray: #D3D6D7;
+
+
+    --pink: #FD72B0;
+    --yellow:#FDCA28;
+    --yellow-hover: #FDBF28;
+    --blue: #5ECEFF;
+
+    --dark: #333333;
+
+    --gray-text: #939393;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Maven Pro', sans-serif;
+    letter-spacing: 1px;
+}

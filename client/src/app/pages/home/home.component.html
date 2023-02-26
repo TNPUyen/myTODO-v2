@@ -1,1 +1,55 @@
-<p>home works!</p>
+<div class="home-container">
+    <div class="home-left">
+        <h4>Dashboard</h4>
+       <div class="home-filter">
+            <div class="home-filter-option">
+                <button (click)="selectTab(i)" [class]="selectedTab == i ? 'tab-active' : 'project-tab-option-btn'"
+                    *ngFor="let tab of tabOptions; let i = index">
+                        <nb-icon [icon]="tab.icon"></nb-icon>
+                        <p>{{tab.title}}</p>
+                </button>
+            </div>
+            <div class="home-todo-filter" *ngIf="!selectedTab">
+                <div (click)="selectedOptionChange(i)"
+                    [ngClass]="[selectedOption != i ? 'label-filter-item': 'label-filter-item active']"
+                    *ngFor="let label of labelsTodo; let i = index">
+                    <p>{{label.label}}</p>
+                </div>
+            </div>
+       </div>
+        <div class="home-left-main-view">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <div class="home-right">
+        <div class="home-right-content">
+            <div class="home-right-top">
+                <div class="home-count-todo personal">
+                    <h6>10</h6>
+                    <p>Personal</p>
+                </div>
+                <div class="home-count-todo official">
+                    <h6>10</h6>
+                    <p>Official</p>
+                </div>
+            </div>
+            <div class="home-right-mid">
+                <nb-calendar [(date)]="pickedDate"></nb-calendar>
+            </div>
+            <div class="home-right-bot">
+                <h6>Add new To do</h6>
+                <div class="pick-date">
+                    <p class="label-input">Content</p>
+                    <input type="text" [(ngModel)]="newTodoContent" placeholder="What to do..?">
+                </div>
+                <div class="pick-date">
+                    <p class="label-input">Do at: </p>
+                    <input [nbDatepicker]="datepicker" [(ngModel)]="todoDate">
+                    <nb-datepicker #datepicker></nb-datepicker>
+                </div>
+                <button class="addBtn">Add</button>
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,135 @@
+.project-container{
+    width: 100%;
+    padding: 4vh 2vw 4vh 2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+h4{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 20px;
+}
+
+// project top option css
+.project-main-option{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    border-radius: 5px;
+
+    input{
+        width: 100%;
+        border: none;
+        outline: none;
+        padding: 12px;
+        border-radius: 5px 0 0 5px;
+    }
+
+    button{
+        border: none;
+        outline: none;
+        background-color: var(--primary);
+        padding: 10px;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+
+        nb-icon{
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        &:hover{
+            background-color: var(--primary-hover);
+        }
+    }
+}
+
+.createProject-btn{
+    border: none;
+    outline: none;
+    background-color: var(--yellow);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: varr(--dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 15px;
+
+    &:hover{
+        background-color: var(--yellow-hover);
+    }
+}
+
+// project table css
+
+.project-main-view{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-table-header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #D3D6D7;
+
+}
+
+.project-table-head-label{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    p{
+        font-weight: 700;
+        margin-right: 5px;
+    }
+
+    nb-icon{
+        font-size: 1rem;
+        margin-right: 5px;
+    }
+}
+
+.project-pin{
+    width: 2.5rem;
+}
+
+.project-name{
+    width: 24em;
+}
+
+.project-type{
+    width: 10em;
+}
+
+.project-leader{
+    width: 15em;
+}
+
+.project-action{
+    width: 8rem;
+}

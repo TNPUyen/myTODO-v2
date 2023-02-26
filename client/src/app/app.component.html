@@ -1,1 +1,12 @@
-<router-outlet></router-outlet>
+<nb-layout>
+  <nb-layout-column>
+    <div class="main-container">
+        <div class="main-sidebar">
+            <app-sidebar></app-sidebar>    
+        </div>
+        <div class="main-view">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+  </nb-layout-column>
+</nb-layout>

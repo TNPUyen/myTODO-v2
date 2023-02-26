@@ -1,0 +1,290 @@
+.home-container{
+    width: 100%;
+    padding: 4vh 2vw 4vh 2vw;
+    display: flex;
+    flex-direction: row;
+}
+
+// CSS for the left content of the home page
+
+.home-left{
+    width: 70%;
+}
+
+h4{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.home-filter{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label-filter-item {
+    margin-right: 8px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+
+    p {
+        color: var(--gray-text);
+        font-weight: 600;
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--gray);
+        opacity: 0.8;
+
+        p {
+            color: var(--gray-text);
+        }
+    }
+}
+
+.home-todo-filter{
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.label-filter-item{
+
+    &.active {
+        background-color: var(--blue);
+        opacity: 0.8;
+
+        p {
+            color: var(--dark);
+        }
+    }
+}
+
+// tab option css active and inactive
+.home-filter-option{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px 0;    
+}
+
+.project-tab-option-btn {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    margin-right: 20px;
+    border-bottom: 2.5px solid transparent;
+    padding-bottom: 5px;
+
+
+    nb-icon {
+        margin-right: 5px;
+        color: var(--gray-text);
+    }
+
+    p {
+        margin: 0px;
+        color: var(--gray-text);
+        font-weight: 500;
+    }
+
+
+
+    &:hover {
+        cursor: pointer;
+        border-bottom: 2.5px solid var(--gray-text);
+
+        nb-icon {
+            color: var(--gray-text-2);
+        }
+
+        p {
+            color: var(--gray-text-2);
+        }
+    }
+}
+
+.tab-active {
+    border-bottom: 2.5px solid var(--primary) !important;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    margin-right: 20px;
+    padding-bottom: 5px;
+
+    p {
+        margin: 0px;
+        font-weight: 500;
+        color:
+            var(--primary) !important;
+    }
+
+    nb-icon {
+        margin-right: 5px;
+        color: var(--primary) !important;
+    }
+}
+
+// router-outlet{
+//     width: 100% !important;
+// }
+
+.home-left-main-view{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+
+// CSS for the right content of the home page
+
+.home-right{
+    width: 30%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;// background-color: palevioletred;
+}
+
+.home-right-content{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-right-top{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+
+    .home-count-todo{
+        width: 10rem;
+        height: 5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+
+        h6{
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        p{
+            font-size: 1rem;
+            color: white;
+        }
+    }
+}
+
+.personal{
+    background-color: var(--pink);
+}
+
+.official{
+    background-color: var(--primary);
+}
+
+
+// CSS for the right mid content of the home page
+.home-right-mid{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+// CSS for the right bottom content of the home page
+.home-right-bot{
+    width: 98%;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+
+    h6{
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 5px;
+    }
+
+
+
+    .pick-date{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px 0;
+
+        .label-input{
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin: 3px 0;
+            width: 25%;
+        }
+    
+        input{
+            width: 75%;
+            padding: 8px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            margin: 5px 0;
+        
+            &:focus{
+                border: 2px solid var(--dark);
+            }
+        }
+    }
+}
+
+
+.addBtn{
+    width: 100%;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 10px;
+    outline: none;
+    margin: 10px 0;
+    background-color: var(--yellow);
+    border: 2px solid var(--yellow);
+    color: var(--dark);
+
+    &:hover{
+        background-color: white;
+        color: var(--yellow);
+        cursor: pointer;
+    }
+}
