@@ -1,4 +1,4 @@
-.project-detail-container{
+.project-detail-container {
     width: 100%;
     padding: 4vh 2vw 4vh 2vw;
     display: flex;
@@ -6,7 +6,7 @@
 }
 
 // css for top content of the project detail page
-.project-detail-top{
+.project-detail-top {
     width: 100%;
     height: 100%;
     display: flex;
@@ -14,14 +14,18 @@
     margin-bottom: 20px;
 }
 
-h4{
+h4 {
     font-size: 1.5rem;
     font-weight: 800;
     color: var(--dark);
     margin: 0 20px 0 0;
 }
 
-.project-tab-option-list{
+p {
+    margin: 0;
+}
+
+.project-tab-option-list {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -39,30 +43,31 @@ h4{
         margin: 0 10px;
         padding: 3px 8px;
 
-        p{
+        p {
             color: var(--gray-text);
             font-weight: 700;
         }
 
-        nb-icon{
+        nb-icon {
             color: var(--gray-text);
-            margin-right:  8px;
+            margin-right: 8px;
         }
 
-        &:hover{
+        &:hover {
             cursor: pointer;
-            p{
+
+            p {
                 color: var(--dark-gray-hover);
             }
 
-            nb-icon{
+            nb-icon {
                 color: var(--dark-gray-hover);
             }
         }
     }
 }
 
-.tab-active{
+.tab-active {
     border-bottom: 2.5px solid var(--primary);
     height: 100%;
     display: flex;
@@ -75,18 +80,18 @@ h4{
     margin: 0 10px;
     padding: 3px 8px;
 
-    p{
+    p {
         color: var(--primary);
         font-weight: 700;
     }
 
-    nb-icon{
+    nb-icon {
         color: var(--primary);
-        margin-right:  8px;
+        margin-right: 8px;
     }
 }
 
-.vertical-divided{
+.vertical-divided {
     border-left: 1px solid var(--gray-text);
     height: 1rem;
     margin: 0 10px;

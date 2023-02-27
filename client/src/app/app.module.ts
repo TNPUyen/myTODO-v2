@@ -8,8 +8,9 @@ import { SharedModule } from './modules/shared/shared.module';
 import { NotiDialogComponent } from './components/noti-dialog/noti-dialog.component';
 import { InvitationDialogComponent } from './components/invitation-dialog/invitation-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbDatepickerModule, NbMenuModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbDatepickerModule, NbMenuModule, NbDialogModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+// import { EditTaskProjectDialogComponent } from './components/edit-task-project-dialog/edit-task-project-dialog.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     AppComponent,
     NotiDialogComponent,
     InvitationDialogComponent,
+    // EditTaskProjectDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     BrowserAnimationsModule,
 
     NbThemeModule.forRoot({ name: 'default' }),
+    NbDialogModule.forChild(),
 
     NbLayoutModule,
 

@@ -9,9 +9,9 @@ import { NbMenuBag, NbMenuItem, NbMenuService, NB_WINDOW } from '@nebular/theme'
 })
 export class ProjectCardComponent implements OnInit {
   items: NbMenuItem[] = [
-    {title: 'Edit', icon: 'edit-outline'} ,
-    { title: 'View detail', icon: 'info-outline'},
-    { title: 'Delete', icon: 'trash-2-outline'},
+    { title: 'Edit', icon: 'edit-outline' },
+    { title: 'View detail', icon: 'info-outline' },
+    { title: 'Delete', icon: 'trash-2-outline' },
   ]
 
   isPinned: boolean = false;
@@ -20,29 +20,29 @@ export class ProjectCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.nbMenuService.onItemClick().subscribe((data: NbMenuBag) => {
-      if(data.item.title === 'Edit') {
+      if (data.item.title === 'Edit') {
         this.openEditProjectDialog()
-      }else if(data.item.title === 'View detail'){
+      } else if (data.item.title === 'View detail') {
         this.openViewDetailDialog();
-      }else{
+      } else {
         this.openDeleteProjectDialog();
       }
     })
   }
 
-  onPinned(){
+  onPinned() {
     this.isPinned = !this.isPinned;
   }
 
-  openEditProjectDialog(){
+  openEditProjectDialog() {
 
   }
 
-  openViewDetailDialog(){
-    this.router.navigate([`project/1`]);
+  openViewDetailDialog() {
+    this.router.navigate([`project/1/board`]);
   }
 
-  openDeleteProjectDialog(){
+  openDeleteProjectDialog() {
 
   }
 }

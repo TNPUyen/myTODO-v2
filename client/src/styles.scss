@@ -4,42 +4,70 @@
 
 @include nb-install() {
   @include nb-theme-global();
-};
+}
+
+;
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap');
 
-:root{
-    // --primary: #7776BC;
-    --primary: #7B69EE;
-    --primary-hover: #6B59DE;
+:root {
+  // --primary: #7776BC;
+  --primary: #7B69EE;
+  --primary-hover: #6B59DE;
+  --light-primary: #E7E4FA;
 
-    --danger: #ED553B;
+  --danger: #ED553B;
 
-    --gray: #FAFBFB;
-    --gray-hover: #e5e4e4;
-    --dark-gray: #D3D6D7;
-    --dark-gray-hover: #b5b5b5;
+  --red: #DB6770;
+  --light-red: #F7E0E0;
+
+  --gray: #FAFBFB;
+  --gray-hover: #e5e4e4;
+
+  --gray-2: #f4f5f7;
+
+  --gray-3: #EDF0F5;
+
+  --dark-gray: #D3D6D7;
+  --dark-gray-hover: #b5b5b5;
+
+  --gray-blue: #E8E9EE;
 
 
-    --pink: #FD72B0;
-    --light-pink: #FDECF2;
+  --pink: #FD72B0;
+  --light-pink: #FDECF2;
 
-    --yellow:#FDCA28;
-    --yellow-hover: #FDBF28;
-    --blue: #5ECEFF;
+  --yellow: #FDCA28;
+  --yellow-hover: #FDBF28;
+  --blue: #5ECEFF;
+  --light-blue: #E1F3F9;
 
-    --light-green: #E1F3E0;
-    --green:#00B884;
+  --light-green: #E1F3E0;
+  --green: #00B884;
 
-    --dark: #333333;
+  --dark: #333333;
 
-    --gray-text: #939393;
+  --gray-text: #939393;
 
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Maven Pro', sans-serif;
-    letter-spacing: 1px;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Maven Pro', sans-serif;
+  letter-spacing: 1px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+p {
+  margin: 0;
 }

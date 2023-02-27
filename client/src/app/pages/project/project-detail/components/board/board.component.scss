@@ -1,13 +1,13 @@
-.board-main-container{
+.board-main-container {
     width: 100%;
 }
 
-.board-main-view{
+.board-main-view {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start !important;
 }
 
 .project-task-col {
@@ -24,9 +24,6 @@
 .task-col {
     display: flex;
     flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    place-self: center;
 
     .task-col-title {
         display: flex;
@@ -79,12 +76,12 @@
     // justify-content: center;
     align-items: center;
     width: 18rem;
-    max-height: 34rem;
-    min-height: 8rem;
+    max-height: 42rem;
+    min-height: 10rem;
     // height: 42rem;
     border-radius: 5px;
-    border: 2px dashed var(--gray);
-    background-color: var(--gray);
+    border: 2px dashed var(--gray-2);
+    background-color: var(--gray-2);
     padding: 0.5rem;
 
     .task-col-list {
@@ -96,40 +93,93 @@
     }
 }
 
-.task-col-create{
+.task-col-create {
     display: flex;
     flex-direction: row;
     padding: 0.5rem 1rem;
     border-radius: 5px;
 
-    nb-icon{
-        margin-right:  8px;
+    nb-icon {
+        margin-right: 8px;
     }
 
-    &:hover{
+    &:hover {
         cursor: pointer;
         background-color: var(--gray-hover);
     }
+
     // justify-content: center;
     // align-items: center;
 }
 
-.task-col-create-edit{
+.task-col-create-edit {
     display: flex;
-    flex-direction: row;
-    padding: 0.5rem 1rem;
+    flex-direction: column;
     border-radius: 5px;
+
+    // .task-col-create-view {
     background-color: white;
+    border-radius: 5px;
+    border: solid 2px var(--primary);
 
-    input{
-        margin-bottom:  8px;
-        border: none
+    input {
+        margin-bottom: 8px;
+        border: none;
+        width: 100%;
+        background-color: white;
+        padding: 1rem;
+        outline: none;
     }
 
-    &:hover{
-        cursor: pointer;
-        background-color: var(--gray-hover);
+    &:active,
+    &:focus-within {
+        outline: solid 2px var(--primary);
     }
+
+    .add-new-task-opt {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0.5rem 1rem;
+
+        button {
+            margin-right: 8px;
+            outline: none;
+            border: none;
+            padding: 5px 8px;
+            border-radius: 5px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .add-new-task-btn {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 800;
+
+            &:hover {
+                background-color: var(--primary-hover);
+            }
+        }
+
+        .cancel-new-task-btn {
+            background-color: var(--dark-gray);
+            color: var(--dark);
+            font-weight: 800;
+
+            &:hover {
+                background-color: var(--dark-gray-hover);
+            }
+        }
+    }
+
+
+
+    // }
+
     // justify-content: center;
     // align-items: center;
 }

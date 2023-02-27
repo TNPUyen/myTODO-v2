@@ -1,0 +1,81 @@
+textarea {
+    resize: none;
+}
+
+.edit-task-dialog {
+    width: 60vw;
+    height: 65vh;
+    border-radius: 8px;
+    background-color: white;
+    padding: 1rem;
+}
+
+.edit-task-dialog-main-view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+// Css for the left view (task info)
+.edit-task-left-view {
+    width: 60%;
+    height: 100%;
+    padding: 1rem;
+}
+
+.edit-task-title {
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    outline: none;
+    border: transparent solid 1px;
+    background-color: transparent;
+    padding: 0.8rem;
+    border-radius: 8px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--gray-blue);
+    }
+
+    &:active {
+        border: var(--primary) solid 1px;
+    }
+
+    &:focus {
+        border: var(--primary) solid 1px;
+    }
+}
+
+.edit-label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0 0 0.5rem 0.5rem;
+}
+
+.edit-task-description {
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    outline: none;
+    border: transparent solid 1px;
+    background-color: transparent;
+    padding: 0.8rem;
+    border-radius: 8px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--gray-blue);
+    }
+}
+
+// Css for the right view (task comments)
+.edit-task-right-view {
+    width: 40%;
+    height: 100%;
+    background-color: lightblue;
+    padding: 1rem;
+}

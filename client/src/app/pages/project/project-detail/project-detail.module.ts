@@ -7,6 +7,8 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { BoardComponent } from './components/board/board.component';
 import { ListComponent } from './components/list/list.component';
 import { RoadMapComponent } from './components/road-map/road-map.component';
+import { BoardTaskCardComponent } from './components/board/components/board-task-card/board-task-card.component';
+import { NbCardModule } from '@nebular/theme';
 
 
 @NgModule({
@@ -14,11 +16,13 @@ import { RoadMapComponent } from './components/road-map/road-map.component';
     ProjectDetailComponent,
     BoardComponent,
     ListComponent,
-    RoadMapComponent
+    RoadMapComponent,
+    BoardTaskCardComponent,
   ],
   imports: [
     CommonModule,
     ProjectDetailRoutingModule,
+    NbCardModule,
 
     SharedModule
   ]

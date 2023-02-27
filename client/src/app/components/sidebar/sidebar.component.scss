@@ -1,4 +1,4 @@
-.sidebar-container{
+.sidebar-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +7,7 @@
     height: 100vh;
 }
 
-.sidebar-main-view{
+.sidebar-main-view {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,14 +16,14 @@
     height: 95%;
 }
 
-h6{
+h6 {
     font-size: 0.8rem;
     font-weight: 800;
     margin: 0;
     padding: 0;
 }
 
-.sidebar-main-content{
+.sidebar-main-content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -32,19 +32,19 @@ h6{
     height: 100%;
 }
 
-.sidebar-menu{
+.sidebar-menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
 
-    ul{
+    ul {
         width: 100%;
         list-style: none;
         padding: 0;
         margin: 0;
 
-        .sidemenu{
+        .sidemenu {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
@@ -54,15 +54,16 @@ h6{
             border: 1px solid transparent;
             padding: 0.5rem;
             border-radius: 8px;
-            p{
+
+            p {
                 margin: 0 0 0 8px;
             }
 
-            nb-icon{
+            nb-icon {
                 font-size: 1.5rem;
             }
 
-            &:hover{
+            &:hover {
                 cursor: pointer;
                 background-color: var(--gray);
                 border: 1px solid var(--gray);
@@ -71,7 +72,7 @@ h6{
     }
 }
 
-.menu-active{
+.menu-active {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -81,21 +82,22 @@ h6{
     border: 1px solid transparent;
     padding: 0.5rem;
     border-radius: 8px;
-            
+
     background-color: var(--primary);
     border: 1px solid var(--primary);
-    p{
+
+    p {
         margin: 0 0 0 8px;
         color: white;
     }
 
-    nb-icon{
+    nb-icon {
         font-size: 1.5rem;
         color: white;
     }
 }
 
-.sidebar-user-preview{
+.sidebar-user-preview {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -104,38 +106,39 @@ h6{
     border-radius: 8px;
     border: 1px solid var(--dark-gray);
     padding: 0.5rem;
-    
-    img{
-        width:2.3rem;
+
+    img {
+        width: 2.3rem;
         height: 2.3rem;
         border-radius: 50%;
     }
 
-    .sidebar-user-info{
-        .sidebar-user-name{
+    .sidebar-user-info {
+        .sidebar-user-name {
             font-size: 1rem;
             font-weight: 800;
         }
 
-        .sidebar-user-role{
+        .sidebar-user-role {
             font-size: 0.9rem;
         }
     }
 }
 
 
-.sidebar-option{
+.sidebar-option {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    ul{
+
+    ul {
         width: 100%;
         list-style: none;
         padding: 0;
         margin: 0;
 
-        li{
+        li {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -146,21 +149,22 @@ h6{
             padding: 0.5rem;
             border-radius: 8px;
 
-            .sidebar-menu-option{
+            .sidebar-menu-option {
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;
                 align-items: center;
-                p{
+
+                p {
                     margin: 0 0 0 8px;
                 }
-    
-                nb-icon{
+
+                nb-icon {
                     font-size: 1.5rem;
                 }
             }
 
-            .new-count-active{
+            .new-count-active {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
@@ -172,13 +176,14 @@ h6{
                 font-size: 0.8rem;
                 font-weight: 800;
 
-                p{
+                p {
                     color: white;
                     font-size: 0.8rem;
+                    margin: 0;
                 }
             }
 
-            &:hover{
+            &:hover {
                 cursor: pointer;
                 background-color: var(--gray);
                 border: 1px solid var(--gray);
@@ -187,12 +192,12 @@ h6{
     }
 }
 
-hr{
+hr {
     width: 100%;
     border: 1px solid var(--gray);
 }
 
-.sidebar-logout{
+.sidebar-logout {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -202,23 +207,27 @@ hr{
     border: 1px solid transparent;
     padding: 0.5rem;
     border-radius: 8px;
-    nb-icon{
+
+    nb-icon {
         font-size: 1.5rem;
         color: var(--danger);
     }
-    p{
+
+    p {
         color: var(--danger);
         margin: 0 0 0 8px;
     }
 
-    &:hover{
+    &:hover {
         cursor: pointer;
         background-color: var(--danger);
         border: 1px solid var(--danger);
-        p{
+
+        p {
             color: white;
         }
-        nb-icon{
+
+        nb-icon {
             color: white;
         }
     }

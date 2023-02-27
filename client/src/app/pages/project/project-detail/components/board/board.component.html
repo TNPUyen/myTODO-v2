@@ -1,26 +1,31 @@
-<div class="board-main-container">
+<div class="board-main-container" cdkDropListGroup>
     <div class="board-main-view">
         <div class="task-col">
             <div class="task-col-title todo">
                 <p class="task-col-title-label ">TO DO</p>
                 <p class="task-col-count">0</p>
             </div>
-            <div class="task-col-container">
+            <div class="task-col-container" cdkDropList #todoList="cdkDropList" [cdkDropListData]="todoTasks"
+                [cdkDropListConnectedTo]="[doingList]" (cdkDropListDropped)="drop($event)">
                 <div class="task-col-list">
-                    <div class="task-col-create" (click)="addNewTask()">
+                    <div *ngIf="!isAddNew" class="task-col-create" (click)="addNewTask()">
                         <nb-icon icon="plus-outline"></nb-icon>
                         <p>Create issue</p>
                     </div>
-                    <div class="task-col-create-edit">
-                        <input type="text">
+                    <div *ngIf="isAddNew" class="task-col-create-edit">
+                        <!-- <div class="task-col-create-view"> -->
+                        <input type="text" placeholder="What needs to be done?">
                         <div class="add-new-task-opt">
-                            <button class="add-new-task-btn">Add</button>
-                            <button class="cancel-new-task-btn">Cancel</button>
+                            <button class="cancel-new-task-btn" (click)="isAddNew=false">Cancel</button>
+                            <button class="add-new-task-btn">Create</button>
                         </div>
+                        <!-- </div> -->
                     </div>
-                    <!-- <app-project-task></app-project-task> -->
+                    <app-board-task-card></app-board-task-card>
+                    <app-board-task-card></app-board-task-card>
+                    <app-board-task-card></app-board-task-card>
                 </div>
-                
+
             </div>
         </div>
 
@@ -29,8 +34,10 @@
                 <p class="task-col-title-label">IN PROGRESS</p>
                 <p class="task-col-count">0</p>
             </div>
-            <div class="task-col-container">
+            <div class="task-col-container" cdkDropList #doingList="cdkDropList" [cdkDropListData]="doingTasks"
+                [cdkDropListConnectedTo]="[verifiedList]" (cdkDropListDropped)="drop($event)">
                 <div class="task-col-list">
+                    <app-board-task-card></app-board-task-card>
                     <!-- <app-project-task></app-project-task> -->
                 </div>
             </div>
@@ -41,7 +48,8 @@
                 <p class="task-col-title-label">VERIFIED</p>
                 <p class="task-col-count">0</p>
             </div>
-            <div class="task-col-container">
+            <div class="task-col-container" cdkDropList #verifiedList="cdkDropList" [cdkDropListData]="verifiedTasks"
+                [cdkDropListConnectedTo]="[doneList]" (cdkDropListDropped)="drop($event)">
                 <div class="task-col-list">
                     <!-- <app-project-task></app-project-task> -->
                 </div>
@@ -53,7 +61,8 @@
                 <p class="task-col-title-label">DONE</p>
                 <p class="task-col-count">0</p>
             </div>
-            <div class="task-col-container">
+            <div class="task-col-container" cdkDropList #doneList="cdkDropList" [cdkDropListData]="doneTasks"
+                [cdkDropListConnectedTo]="[verifiedList]" (cdkDropListDropped)="drop($event)">
                 <div class="task-col-list">
                     <!-- <app-project-task></app-project-task> -->
                 </div>
