@@ -1,1 +1,30 @@
-<p>project-detail works!</p>
+<div class="project-detail-container">
+    <div class="project-detail-top">
+        <h4>This is a demo project</h4>
+        <div class="project-tab-option-list">
+            <!-- <button (click)="selectTab(i)" [class]="selectedTab == i ? 'tab-active' : 'project-tab-option-btn'"
+                *ngFor="let tab of tabOptions; let i = index">
+                <nb-icon [icon]="tab.icon"></nb-icon>
+                <p>{{tab.title}}</p>
+            </button> -->
+
+            <button (click)="selectTab(0)" [class]="selectedTab == 0 ? 'tab-active' : 'project-tab-option-btn'">
+                <nb-icon icon="layout-outline"></nb-icon>
+                <p>Board</p>
+            </button>
+            <div class="vertical-divided"></div>
+            <button (click)="selectTab(1)" [class]="selectedTab == 1 ? 'tab-active' : 'project-tab-option-btn'">
+                <nb-icon icon="pricetags-outline"></nb-icon>
+                <p>List</p>
+            </button>
+            <div class="vertical-divided"></div>
+            <button (click)="selectTab(2)" [class]="selectedTab == 2 ? 'tab-active' : 'project-tab-option-btn'">
+                <nb-icon icon="calendar-outline"></nb-icon>
+                <p>Road map</p>
+            </button>
+        </div>
+    </div>
+    <div class="project-detail-option-view">
+        <router-outlet></router-outlet>
+    </div>
+</div>

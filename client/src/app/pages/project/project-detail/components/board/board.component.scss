@@ -1,0 +1,135 @@
+.board-main-container{
+    width: 100%;
+}
+
+.board-main-view{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-task-col {
+    width: 100%;
+    // height: 100%;
+}
+
+.project-task-col-content {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+}
+
+.task-col {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    place-self: center;
+
+    .task-col-title {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        background-color: var(--gray);
+        border-radius: 0 0 5px 5px;
+        padding: 5px 8px;
+
+        .task-col-title-label {
+            padding: 5px 8px;
+            border-radius: 8px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .task-col-count {
+            margin-left: 1rem;
+            padding: 5px 8px;
+            border-radius: 8px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+    }
+}
+
+
+
+.todo {
+    border-top: 4px solid var(--primary) !important;
+}
+
+.in-progress {
+    border-top: 4px solid var(--yellow) !important;
+}
+
+.verified {
+    border-top: 4px solid var(--pink) !important;
+}
+
+.done {
+    border-top: 4px solid var(--green) !important;
+}
+
+.task-col-container {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    width: 18rem;
+    max-height: 34rem;
+    min-height: 8rem;
+    // height: 42rem;
+    border-radius: 5px;
+    border: 2px dashed var(--gray);
+    background-color: var(--gray);
+    padding: 0.5rem;
+
+    .task-col-list {
+        width: 100%;
+        // height: 95%;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.task-col-create{
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+
+    nb-icon{
+        margin-right:  8px;
+    }
+
+    &:hover{
+        cursor: pointer;
+        background-color: var(--gray-hover);
+    }
+    // justify-content: center;
+    // align-items: center;
+}
+
+.task-col-create-edit{
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: white;
+
+    input{
+        margin-bottom:  8px;
+        border: none
+    }
+
+    &:hover{
+        cursor: pointer;
+        background-color: var(--gray-hover);
+    }
+    // justify-content: center;
+    // align-items: center;
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NbMenuService } from '@nebular/theme';
-import { filter, map } from 'rxjs';
+import { Router } from '@angular/router';
+import { NbMenuBag, NbMenuItem, NbMenuService, NB_WINDOW } from '@nebular/theme';
 
 @Component({
   selector: 'app-project-card',
@@ -8,21 +8,41 @@ import { filter, map } from 'rxjs';
   styleUrls: ['./project-card.component.scss']
 })
 export class ProjectCardComponent implements OnInit {
-  items = [
-    { title: 'Edit' },
-    { title: 'View detail' },
-    { title: 'Delete' },
+  items: NbMenuItem[] = [
+    {title: 'Edit', icon: 'edit-outline'} ,
+    { title: 'View detail', icon: 'info-outline'},
+    { title: 'Delete', icon: 'trash-2-outline'},
   ]
 
-  constructor(private nbMenuService: NbMenuService) { }
+  isPinned: boolean = false;
+
+  constructor(private nbMenuService: NbMenuService, private router: Router) { }
 
   ngOnInit(): void {
-    this.nbMenuService.onItemClick()
-    .pipe(
-      filter(({ tag }) => tag === 'my-context-menu'),
-      map(({ item: { title } }) => title),
-    )
-    .subscribe(title => console.log(`Click on menu item: ${title}`));
+    this.nbMenuService.onItemClick().subscribe((data: NbMenuBag) => {
+      if(data.item.title === 'Edit') {
+        this.openEditProjectDialog()
+      }else if(data.item.title === 'View detail'){
+        this.openViewDetailDialog();
+      }else{
+        this.openDeleteProjectDialog();
+      }
+    })
   }
 
+  onPinned(){
+    this.isPinned = !this.isPinned;
+  }
+
+  openEditProjectDialog(){
+
+  }
+
+  openViewDetailDialog(){
+    this.router.navigate([`project/1`]);
+  }
+
+  openDeleteProjectDialog(){
+
+  }
 }

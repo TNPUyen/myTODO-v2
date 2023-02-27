@@ -1,6 +1,9 @@
 <div class="project-card-container">
     <div class="project-table-head-label project-pin">
-        <nb-icon icon="star-outline"></nb-icon>
+        <div (click)="onPinned()">
+            <nb-icon *ngIf="!isPinned" icon="star-outline"></nb-icon>
+            <nb-icon *ngIf="isPinned" icon="star" style="color: var(--yellow);"></nb-icon>
+        </div>
     </div>
     <div class="project-table-head-label project-name">
         <p>This is a demo project</p>

@@ -6,6 +6,11 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #D3D6D7;
+
+    &:hover{
+        background-color: var(--gray-hover);
+        cursor: pointer;
+    }
 }
 
 

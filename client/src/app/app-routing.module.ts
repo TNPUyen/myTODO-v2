@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full'}, 
   { path: 'project', loadChildren: () => import('./pages/project/project.module').then(m => m.ProjectModule) }, 
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) }, 
-  { path: 'project-detail', loadChildren: () => import('./pages/project/project-detail/project-detail.module').then(m => m.ProjectDetailModule) }];
+  { path: 'project/:id', loadChildren: () => import('./pages/project/project-detail/project-detail.module').then(m => m.ProjectDetailModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

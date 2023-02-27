@@ -1,0 +1,63 @@
+<div class="board-main-container">
+    <div class="board-main-view">
+        <div class="task-col">
+            <div class="task-col-title todo">
+                <p class="task-col-title-label ">TO DO</p>
+                <p class="task-col-count">0</p>
+            </div>
+            <div class="task-col-container">
+                <div class="task-col-list">
+                    <div class="task-col-create" (click)="addNewTask()">
+                        <nb-icon icon="plus-outline"></nb-icon>
+                        <p>Create issue</p>
+                    </div>
+                    <div class="task-col-create-edit">
+                        <input type="text">
+                        <div class="add-new-task-opt">
+                            <button class="add-new-task-btn">Add</button>
+                            <button class="cancel-new-task-btn">Cancel</button>
+                        </div>
+                    </div>
+                    <!-- <app-project-task></app-project-task> -->
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="task-col">
+            <div class="task-col-title in-progress">
+                <p class="task-col-title-label">IN PROGRESS</p>
+                <p class="task-col-count">0</p>
+            </div>
+            <div class="task-col-container">
+                <div class="task-col-list">
+                    <!-- <app-project-task></app-project-task> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="task-col">
+            <div class="task-col-title verified">
+                <p class="task-col-title-label">VERIFIED</p>
+                <p class="task-col-count">0</p>
+            </div>
+            <div class="task-col-container">
+                <div class="task-col-list">
+                    <!-- <app-project-task></app-project-task> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="task-col">
+            <div class="task-col-title done">
+                <p class="task-col-title-label">DONE</p>
+                <p class="task-col-count">0</p>
+            </div>
+            <div class="task-col-container">
+                <div class="task-col-list">
+                    <!-- <app-project-task></app-project-task> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
