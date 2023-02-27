@@ -6,23 +6,74 @@
             <textarea type="text" class="edit-task-description" value="This is a dmeo task"
                 placeholder="Add a description..."></textarea>
             <p class="edit-label">Details</p>
-            <div class="edit-task-field">
-                <p class="edit-task-field-label">Status</p>
-                <input type="text" value="This is a dmeo task">
+            <div class="task-fields">
+                <div class="edit-task-field">
+                    <p class="edit-task-field-label">Status</p>
+                    <nb-select placeholder="Select Showcase" (selectedChange)="filterProjects($event)" [(selected)]="isSharedProjects">
+                        <nb-option *ngFor="let label of projectPropService.statusTask" [value]="label">
+                            <div class="option-assignee">
+                                <p>{{label.label}}</p>
+                            </div>
+                        </nb-option>
+                    </nb-select>
+                    <!-- <input type="text" value="This is a dmeo task"> -->
+                </div>
+                <div class="edit-task-field">
+                    <p class="edit-task-field-label">Priority</p>
+                    <nb-select placeholder="Select Showcase" (selectedChange)="filterProjects($event)" [(selected)]="isSharedProjects">
+                        <nb-option *ngFor="let label of projectPropService.taskPriorities" [value]="label">
+                            <div class="option-assignee">
+                                <p>{{label.label}}</p>
+                            </div>
+                        </nb-option>
+                    </nb-select>
+                    <!-- <input type="text" value="This is a dmeo task"> -->
+                </div>
             </div>
-            <div class="edit-task-field">
-                <p class="edit-task-field-label">Priority</p>
-                <input type="text" value="This is a dmeo task">
+            <div class="task-fields">
+                <div class="edit-task-field">
+                    <p class="edit-task-field-label">Label</p>
+                    <nb-select placeholder="Select Showcase" (selectedChange)="filterProjects($event)" [(selected)]="isSharedProjects">
+                        <nb-option *ngFor="let label of projectPropService.labelsTask" [value]="label">
+                            <div class="option-assignee">
+                                <p>{{label.label}}</p>
+                            </div>
+                        </nb-option>
+                    </nb-select><!-- <input type="text" value="This is a dmeo task"> -->
+                </div>
+                <div class="edit-task-field">
+                    <p class="edit-task-field-label">Deadline</p>
+                    <input nbInput [nbDatepicker]="datepicker" [(ngModel)]="taskDeadline">
+                    <nb-datepicker #datepicker></nb-datepicker>
+                    <!-- <input type="text" value="This is a dmeo task"> -->
+                </div>
             </div>
-            <div class="edit-task-field">
-                <p class="edit-task-field-label">Label</p>
-                <input type="text" value="This is a dmeo task">
-            </div>
-            <div class="edit-task-field">
+            <div class="edit-task-field-assignee">
                 <p class="edit-task-field-label">Assignee</p>
-                <input type="text" value="This is a dmeo task">
+                <nb-tag-list (tagRemove)="onTagRemove($event)">
+                    <nb-tag *ngFor="let tag of tags" [text]="tag" removable></nb-tag>
+                    <input type="text" nbTagInput placeholder="Share to..." [nbAutocomplete]="autocomplete" fullWidth>
+                </nb-tag-list>
+                <nb-autocomplete #autocomplete (selectedChange)="onTagAdd($event)">
+                    <nb-option class="option" *ngFor="let option of options" [value]="option">
+                        <img [src]="option.photoURL" alt="">
+                        <h6>{{option.displayName}}</h6>
+                    </nb-option>
+                </nb-autocomplete> 
             </div>
         </div>
-        <div class="edit-task-right-view"></div>
+        <div class="edit-task-right-view">
+            <div class="edit-task-right-top">
+                <div class="right-top-title">
+                    <p class="edit-label">Sub issues</p>
+                    <div>
+                        <nb-icon icon="plus-outline"></nb-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="edit-task-right-bot">
+                <p class="edit-label">Comments</p>
+            </div>
+        </div>
     </div>
 </div>

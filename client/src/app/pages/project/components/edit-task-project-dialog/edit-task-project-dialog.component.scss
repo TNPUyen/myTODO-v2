@@ -4,7 +4,7 @@ textarea {
 
 .edit-task-dialog {
     width: 60vw;
-    height: 65vh;
+    height: 80vh;
     border-radius: 8px;
     background-color: white;
     padding: 1rem;
@@ -20,7 +20,7 @@ textarea {
 
 // Css for the left view (task info)
 .edit-task-left-view {
-    width: 60%;
+    width: 55%;
     height: 100%;
     padding: 1rem;
 }
@@ -53,7 +53,7 @@ textarea {
 .edit-label {
     font-size: 1rem;
     font-weight: bold;
-    margin: 0 0 0.5rem 0.5rem;
+    margin: 0.8rem 0 0.8rem 0.5rem;
 }
 
 .edit-task-description {
@@ -72,10 +72,79 @@ textarea {
     }
 }
 
-// Css for the right view (task comments)
+// Css for the edit task fields group
+.task-fields{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 1rem;
+}
+
+
+// CSS for the edit task fields
+.edit-task-field{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 48%;
+
+    p{
+        margin: 0;
+        font-weight: 700;
+        font-size: 0.8rem;
+    }
+
+    input{
+        width: 100% !important;
+    }
+}
+
+.edit-task-field-assignee{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0.5rem 1rem;
+
+    p{
+        margin: 0;
+        font-weight: 700;
+        font-size: 0.8rem;
+    }
+
+    nb-tag-list{
+        width: 100%;
+
+        input{
+            width: 100%;
+        }
+    }
+}
+
+// Css for the right view 
 .edit-task-right-view {
-    width: 40%;
+    width: 45%;
     height: 100%;
-    background-color: lightblue;
+}
+
+// Css for the top right view (task subtasks)
+.edit-task-right-top{
+    width: 100%;
+    height: 40%;
+    background-color: lightgreen;
+    padding: 1rem;
+
+    .right-top-title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+// Css for the bottom right view (task comments)
+.edit-task-right-bot{
+    width: 100%;
+    height: 60%;
+    background-color: lightcoral;
     padding: 1rem;
 }
