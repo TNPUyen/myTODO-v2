@@ -6,11 +6,15 @@
         <p>This is a demo project</p>
     </div>
     <div class="project-table-head-label project-type">
-        <p>Type</p>
+        <p class="project-type-tag team">Team-managed</p>
     </div>
     <div class="project-table-head-label project-leader">
         <img src="../../../../../assets/images/user.jpg" alt="">
         <p>Demo</p>
     </div>
-    <div class="project-table-head-label project-action"></div>
+    <div class="project-table-head-label project-action">
+        <div class="project-action-btn"  [nbContextMenu]="items">
+            <nb-icon icon="more-horizontal-outline"></nb-icon>
+        </div>
+    </div>
 </div>

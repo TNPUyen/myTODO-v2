@@ -96,7 +96,6 @@ h4{
 
 .project-table-head-label{
     font-size: 1.2rem;
-    font-weight: 600;
     color: var(--dark);
     display: flex;
     flex-direction: row;
@@ -104,7 +103,7 @@ h4{
     justify-content: flex-start;
 
     p{
-        font-weight: 700;
+        font-weight: 500;
         margin-right: 5px;
     }
 
@@ -119,17 +118,17 @@ h4{
 }
 
 .project-name{
-    width: 24em;
+    width: 24rem;
 }
 
 .project-type{
-    width: 10em;
+    width: 10rem;
 }
 
 .project-leader{
-    width: 15em;
+    width: 15rem;
 }
 
 .project-action{
-    width: 8rem;
+    width: 5rem;
 }

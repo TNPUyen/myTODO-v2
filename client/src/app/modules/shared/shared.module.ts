@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 
-import { NbCalendarModule, NbCheckboxModule, NbDatepickerModule, NbIconModule, NbSelectModule } from '@nebular/theme';
+import { NbCalendarModule,NbContextMenuModule, NbCheckboxModule, NbDatepickerModule, NbIconModule, NbSelectModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     NbDatepickerModule,
     NbCheckboxModule,
     NbSelectModule,
+    NbContextMenuModule,
 
     FormsModule,
   ],
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     NbDatepickerModule, 
     NbCheckboxModule,
     NbSelectModule, 
+    NbContextMenuModule,
     
     FormsModule]
 })

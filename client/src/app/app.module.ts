@@ -8,7 +8,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { NotiDialogComponent } from './components/noti-dialog/noti-dialog.component';
 import { InvitationDialogComponent } from './components/invitation-dialog/invitation-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbDatepickerModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbDatepickerModule, NbMenuModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 
@@ -32,6 +32,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 
     NbEvaIconsModule,
     NbDatepickerModule.forRoot(),
+    NbMenuModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
