@@ -8,11 +8,13 @@ import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { EditProjectDialogComponent } from '../../pages/project/components/edit-project-dialog/edit-project-dialog.component';
 import { EditTaskProjectDialogComponent } from 'src/app/pages/project/components/edit-task-project-dialog/edit-task-project-dialog.component';
+import { SubtaskCardComponent } from 'src/app/pages/project/components/subtask-card/subtask-card.component';
 
 @NgModule({
   declarations: [SidebarComponent,
     EditProjectDialogComponent,
     EditTaskProjectDialogComponent,
+    SubtaskCardComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +37,7 @@ import { EditTaskProjectDialogComponent } from 'src/app/pages/project/components
     SidebarComponent,
     EditTaskProjectDialogComponent,
     EditTaskProjectDialogComponent,
+    SubtaskCardComponent,
 
     NbIconModule,
     NbCalendarModule,
