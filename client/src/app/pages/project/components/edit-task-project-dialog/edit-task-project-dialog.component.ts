@@ -9,6 +9,8 @@ import { ProjectPropService } from 'src/app/services/project-prop.service';
   styleUrls: ['./edit-task-project-dialog.component.scss']
 })
 export class EditTaskProjectDialogComponent implements OnInit {
+
+
   isSharedProjects: string = '0';
   taskDeadline: Date = new Date();
   tags: Set<string> = new Set<string>();
@@ -17,14 +19,22 @@ export class EditTaskProjectDialogComponent implements OnInit {
 
   @ViewChild(NbTagInputDirective, { read: ElementRef })
   tagInput!: ElementRef<HTMLInputElement>;
-  
+
   constructor(public projectPropService: ProjectPropService) { }
 
   ngOnInit(): void {
   }
 
-  filterProjects(event: any) {
-    console.log(event);
+
+
+  filterPriorities($event: any) {
+
+  }
+  filterLabels($event: any) {
+
+  }
+
+  filterStatuses($event: any) {
   }
 
   onTagRemove(tagToRemove: NbTagComponent): void {

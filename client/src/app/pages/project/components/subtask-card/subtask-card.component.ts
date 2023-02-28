@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectPropService } from 'src/app/services/project-prop.service';
 
 @Component({
   selector: 'app-subtask-card',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubtaskCardComponent implements OnInit {
 
-  constructor() { }
+  isEdit: boolean = false;
+  isSharedProjects: any;
+
+  filterStatuses($event: any) {
+    throw new Error('Method not implemented.');
+  }
+
+  constructor(public projectPropService: ProjectPropService) { }
 
   ngOnInit(): void {
   }

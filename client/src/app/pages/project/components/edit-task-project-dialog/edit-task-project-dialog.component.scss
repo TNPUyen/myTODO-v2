@@ -73,7 +73,7 @@ textarea {
 }
 
 // Css for the edit task fields group
-.task-fields{
+.task-fields {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -83,39 +83,39 @@ textarea {
 
 
 // CSS for the edit task fields
-.edit-task-field{
+.edit-task-field {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 48%;
 
-    p{
+    p {
         margin: 0;
         font-weight: 700;
         font-size: 0.8rem;
     }
 
-    input{
+    input {
         width: 100% !important;
     }
 }
 
-.edit-task-field-assignee{
+.edit-task-field-assignee {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin: 0.5rem 1rem;
 
-    p{
+    p {
         margin: 0;
         font-weight: 700;
         font-size: 0.8rem;
     }
 
-    nb-tag-list{
+    nb-tag-list {
         width: 100%;
 
-        input{
+        input {
             width: 100%;
         }
     }
@@ -125,50 +125,109 @@ textarea {
 .edit-task-right-view {
     width: 45%;
     height: 100%;
+    background-color: var(--light-blue);
+    border-radius: 8px;
 }
 
-.edit-label-right{
+.edit-label-right {
     font-size: 1rem;
     font-weight: bold;
-    margin: 0;
+    margin: 0 0 5px 0;
 }
 
 // Css for the top right view (task subtasks)
-.edit-task-right-top{
+.edit-task-right-top {
     width: 100%;
     height: 40%;
     padding: 1rem;
 
-    .right-top-title{
+    .right-top-title {
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: 10%;
         padding-bottom: 5px;
     }
-
-    .right-top-view{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        height: 90%;
-    }
 }
 
-.right-top-view{
+.right-top-view {
     display: flex;
     flex-direction: column !important;
     align-items: flex-start !important;
-    background-color: lightblue;
+    justify-content: flex-start !important;
     width: 100%;
-    height: 100%;
+    height: 90%;
+    overflow-y: auto;
+    padding-right: 8px;
 }
 
 // Css for the bottom right view (task comments)
-.edit-task-right-bot{
+.edit-task-right-bot {
     width: 100%;
     height: 60%;
-    background-color: lightcoral;
-    padding: 1rem;
+    padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.right-bot-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    height: 95%;
+}
+
+.comments-list {
+    width: 100%;
+    height: 90%;
+    overflow-y: auto;
+    padding-right: 8px;
+    background-color: lightgoldenrodyellow;
+}
+
+// CSS for the comment input at the end of the right content
+.comment-input {
+    width: 100%;
+    height: 10%;
+    // background-color: lightgreen;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.btn-with-icon {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: transparent;
+}
+
+.comment-opt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 10%;
+}
+
+.comment-ipt {
+    width: 80%;
+    height: 100%;
+
+    input {
+        width: 100%;
+        border: none;
+        outline: none;
+        height: 100%;
+        padding: 3px 8px;
+        background-color: transparent;
+    }
+}
+
+.comment-btn {
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
+
 }

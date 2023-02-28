@@ -1,1 +1,18 @@
-<p>subtask-card works!</p>
+<div class="subtask-container">
+    <div class="subtask-main-view">
+        <div class="subtask-title">
+            <h6 *ngIf="!isEdit">This is a demo subtask This is a demo subtask</h6>
+            <button><nb-icon icon="edit-outline"></nb-icon></button>
+            <input *ngIf="isEdit" type="text" placeholder="Enter subtask title..." />
+        </div>
+        <div class="subtask-info">
+            <img class="subtask-assignee-ava" src="../../../../../assets/images/user.jpg" alt="">
+            <select>
+                <option value="0">To do</option>
+                <option value="1">In progress</option>
+                <option value="2">Verified</option>
+                <option value="3">Done</option>
+            </select>
+        </div>
+    </div>
+</div>

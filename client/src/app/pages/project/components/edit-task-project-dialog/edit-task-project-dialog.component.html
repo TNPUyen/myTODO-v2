@@ -9,7 +9,8 @@
             <div class="task-fields">
                 <div class="edit-task-field">
                     <p class="edit-task-field-label">Status</p>
-                    <nb-select placeholder="Select Showcase" (selectedChange)="filterProjects($event)" [(selected)]="isSharedProjects">
+                    <nb-select placeholder="Select Showcase" (selectedChange)="filterStatuses($event)"
+                        [(selected)]="isSharedProjects">
                         <nb-option *ngFor="let label of projectPropService.statusTask" [value]="label">
                             <div class="option-assignee">
                                 <p>{{label.label}}</p>
@@ -20,7 +21,8 @@
                 </div>
                 <div class="edit-task-field">
                     <p class="edit-task-field-label">Priority</p>
-                    <nb-select placeholder="Select Showcase" (selectedChange)="filterProjects($event)" [(selected)]="isSharedProjects">
+                    <nb-select placeholder="Select Showcase" (selectedChange)="filterPriorities($event)"
+                        [(selected)]="isSharedProjects">
                         <nb-option *ngFor="let label of projectPropService.taskPriorities" [value]="label">
                             <div class="option-assignee">
                                 <p>{{label.label}}</p>
@@ -33,7 +35,8 @@
             <div class="task-fields">
                 <div class="edit-task-field">
                     <p class="edit-task-field-label">Label</p>
-                    <nb-select placeholder="Select Showcase" (selectedChange)="filterProjects($event)" [(selected)]="isSharedProjects">
+                    <nb-select placeholder="Select Showcase" (selectedChange)="filterLabels($event)"
+                        [(selected)]="isSharedProjects">
                         <nb-option *ngFor="let label of projectPropService.labelsTask" [value]="label">
                             <div class="option-assignee">
                                 <p>{{label.label}}</p>
@@ -59,7 +62,7 @@
                         <img [src]="option.photoURL" alt="">
                         <h6>{{option.displayName}}</h6>
                     </nb-option>
-                </nb-autocomplete> 
+                </nb-autocomplete>
             </div>
         </div>
         <div class="edit-task-right-view">
@@ -71,14 +74,45 @@
                     </div>
                 </div>
                 <div class="right-top-view">
-                    <app-subtask-card></app-subtask-card>
-                    <app-subtask-card></app-subtask-card>
-                    <app-subtask-card></app-subtask-card>
+                    <div style="width: 100%">
+                        <app-subtask-card></app-subtask-card>
+                    </div>
+                    <div style="width: 100%">
+                        <app-subtask-card></app-subtask-card>
+                    </div>
+                    <div style="width: 100%">
+                        <app-subtask-card></app-subtask-card>
+                    </div>
+                    <div style="width: 100%">
+                        <app-subtask-card></app-subtask-card>
+                    </div>
+                    <div style="width: 100%">
+                        <app-subtask-card></app-subtask-card>
+                    </div>
                 </div>
             </div>
             <div class="edit-task-right-bot">
                 <p class="edit-label-right">Comments</p>
-                <div class="right-bot-view"></div>
+                <div class="right-bot-view">
+                    <div class="comments-list">
+
+                    </div>
+                    <div class="comment-input">
+                        <div class="comment-opt">
+                            <div class="comment-opt-btn">
+                                <button class="btn-with-icon">
+                                    <nb-icon icon="attach-outline"></nb-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="comment-ipt">
+                            <input type="text" placeholder="Your comment is...">
+                        </div>
+                        <div class="comment-btn">
+                            <button class="btn-with-icon"><nb-icon icon="navigation-2-outline"></nb-icon></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

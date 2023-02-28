@@ -1,0 +1,106 @@
+.subtask-container {
+    width: 100%;
+    height: 3rem;
+    border-radius: 5px;
+    background-color: white;
+    padding: 2px;
+    margin-bottom: 5px;
+}
+
+.subtask-main-view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between !important;
+}
+
+//hover input then show the add button
+h6 {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--gray-text);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0 5px;
+    width: 90%;
+}
+
+.subtask-title {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+
+    input {
+        // overflow: visible;
+        border: none;
+        outline: none;
+        padding: 3px 5px;
+        width: 100%;
+        background-color: transparent;
+    }
+
+    button {
+        display: none;
+        position: absolute;
+        right: 0;
+        // bottom: -10px;
+        height: 20px;
+        width: 20px;
+        border-radius: 5px;
+        background-color: var(--gray-blue);
+        border: 1 solid var(--gray-blue-2);
+
+        nb-icon {
+            font-size: 1rem;
+            color: var(--dark);
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: var(--gray-blue-2);
+        }
+    }
+
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--gray-blue);
+
+        button {
+            display: block;
+        }
+    }
+}
+
+.subtask-info {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.subtask-assignee-ava {
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+select {
+    width: 6.5rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--light-primary);
+    background-color: var(--light-primary);
+    color: var(--primary);
+    font-weight: 800;
+}
